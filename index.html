@@ -211,17 +211,85 @@
 
         .hero-visual {
             position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
         }
 
-        .hero-mascot {
-            max-width: 450px;
-            width: 100%;
-            height: auto;
-            filter: drop-shadow(0 20px 40px rgba(0,0,0,0.3));
+        .phone-mockup {
+            background: linear-gradient(145deg, #2a2a4a, #1a1a3e);
+            border-radius: 40px;
+            padding: 15px;
+            max-width: 320px;
+            margin: 0 auto;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
             animation: float 4s ease-in-out infinite;
+        }
+
+        .phone-screen {
+            background: white;
+            border-radius: 30px;
+            padding: 30px 20px;
+            min-height: 500px;
+        }
+
+        .app-header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .app-logo {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 15px;
+            margin: 0 auto 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            font-weight: bold;
+        }
+
+        .app-balance {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 25px;
+            border-radius: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .app-balance-label {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        .app-balance-amount {
+            font-size: 2.2rem;
+            font-weight: 700;
+        }
+
+        .app-services {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .app-service {
+            background: var(--gray-light);
+            padding: 15px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .app-service-icon {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+
+        .app-service-name {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text);
         }
 
         /* Stats Section */
@@ -481,6 +549,12 @@
             color: rgba(255,255,255,0.6);
         }
 
+        .waitlist-mascot {
+            max-width: 200px;
+            margin-top: 40px;
+            filter: drop-shadow(0 10px 30px rgba(0,0,0,0.3));
+        }
+
         /* Footer */
         footer {
             background: var(--secondary);
@@ -597,12 +671,7 @@
             }
 
             .hero-visual {
-                display: block;
-            }
-
-            .hero-mascot {
-                max-width: 300px;
-                margin-top: 30px;
+                display: none;
             }
 
             .services-grid {
@@ -698,7 +767,36 @@
                 </div>
             </div>
             <div class="hero-visual">
-                <img src="mascot.png" alt="UniCash Mascot" class="hero-mascot">
+                <div class="phone-mockup">
+                    <div class="phone-screen">
+                        <div class="app-header">
+                            <div class="app-logo">U</div>
+                            <div style="font-weight: 600; color: #1a1a2e;">Welcome back!</div>
+                        </div>
+                        <div class="app-balance">
+                            <div class="app-balance-label">Available Balance</div>
+                            <div class="app-balance-amount">$1,250.00</div>
+                        </div>
+                        <div class="app-services">
+                            <div class="app-service">
+                                <div class="app-service-icon">💸</div>
+                                <div class="app-service-name">Send Money</div>
+                            </div>
+                            <div class="app-service">
+                                <div class="app-service-icon">💵</div>
+                                <div class="app-service-name">Cash Advance</div>
+                            </div>
+                            <div class="app-service">
+                                <div class="app-service-icon">🛡️</div>
+                                <div class="app-service-name">Plans</div>
+                            </div>
+                            <div class="app-service">
+                                <div class="app-service-icon">🚗</div>
+                                <div class="app-service-name">Insurance</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -821,6 +919,7 @@
                 <button type="submit">Join Waitlist</button>
             </form>
             <p class="waitlist-note">🔒 We respect your privacy. No spam, ever.</p>
+            <img src="mascot-support.png" alt="UniCash Support" class="waitlist-mascot">
         </div>
     </section>
 
