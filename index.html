@@ -17,14 +17,18 @@
         }
 
         :root {
-            --primary: #00CEC9;
-            --primary-dark: #00b894;
-            --secondary: #1a1a2e;
-            --accent: #f39c12;
-            --text: #333;
-            --text-light: #666;
+            --brand-green: #27FB6B;
+            --action-blue: #296BFF;
+            --brand-blue: #0D1752;
+            --primary: #296BFF;
+            --primary-dark: #1E56D9;
+            --secondary: #0D1752;
+            --accent: #27FB6B;
+            --text: #0D1752;
+            --text-light: #46495C;
             --white: #ffffff;
-            --gray-light: #f8f9fa;
+            --gray-light: #EEF2FF;
+            --ghost-white: #EEF2FF;
         }
 
         body {
@@ -58,12 +62,12 @@
         .logo {
             font-size: 1.8rem;
             font-weight: 800;
-            color: var(--primary);
+            color: var(--action-blue);
             text-decoration: none;
         }
 
         .logo span {
-            color: var(--secondary);
+            color: var(--brand-green);
         }
 
         .nav-links {
@@ -116,7 +120,7 @@
             right: -20%;
             width: 80%;
             height: 150%;
-            background: radial-gradient(ellipse, rgba(0,206,201,0.15) 0%, transparent 70%);
+            background: radial-gradient(ellipse, rgba(39,251,107,0.15) 0%, transparent 70%);
             pointer-events: none;
         }
 
@@ -135,8 +139,8 @@
 
         .hero-badge {
             display: inline-block;
-            background: rgba(0,206,201,0.2);
-            color: var(--primary);
+            background: rgba(39,251,107,0.2);
+            color: var(--brand-green);
             padding: 8px 16px;
             border-radius: 20px;
             font-size: 0.9rem;
@@ -185,7 +189,7 @@
         .btn-primary:hover {
             background: var(--primary-dark);
             transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0,206,201,0.3);
+            box-shadow: 0 10px 30px rgba(41,107,255,0.3);
         }
 
         .btn-secondary {
@@ -385,8 +389,8 @@
         }
 
         .service-highlight {
-            background: rgba(0,206,201,0.1);
-            color: var(--primary-dark);
+            background: rgba(39,251,107,0.15);
+            color: var(--brand-blue);
             padding: 8px 16px;
             border-radius: 20px;
             font-size: 0.85rem;
@@ -562,7 +566,7 @@
         .footer-brand h3 {
             font-size: 1.8rem;
             font-weight: 800;
-            color: var(--primary);
+            color: var(--brand-green);
             margin-bottom: 15px;
         }
 
