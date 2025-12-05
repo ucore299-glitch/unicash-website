@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UniCash | Financial Services for Latino Immigrants</title>
-    <meta name="description" content="UniCash provides affordable remittances, cash advances, assistance plans, and insurance for Latino immigrants in the US. Coming March 2026.">
-    <meta name="keywords" content="remittances, cash advance, Latino immigrants, financial services, money transfer, insurance">
+    <title>UniCash - Financial Services for the Latin Community</title>
+    <meta name="description" content="UniCash empowers the Latin community with accessible remittances, cash advances, assistance plans, and auto insurance. Modern financial services made simple.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         * {
             margin: 0;
@@ -17,740 +17,1593 @@
         }
 
         :root {
+            /* UniCash Brand Colors */
             --brand-green: #27FB6B;
             --action-blue: #296BFF;
             --brand-blue: #0D1752;
-            --primary: #296BFF;
-            --primary-dark: #1E56D9;
-            --secondary: #0D1752;
-            --accent: #27FB6B;
-            --text: #0D1752;
-            --text-light: #46495C;
-            --white: #ffffff;
-            --gray-light: #EEF2FF;
             --ghost-white: #EEF2FF;
+            --white: #FFFFFF;
+            --light-border: #DEE7FF;
+            --error: #FF0000;
+            --mid-grey: #46495C;
+            --dark-grey: #1B1B22;
+
+            /* Text Colors */
+            --text-primary: #0D1752;
+            --text-secondary: #46495C;
+            --text-light: #6B7280;
+            --text-white: #FFFFFF;
+
+            /* Backgrounds */
+            --bg-light: #F9FAFB;
+            --bg-dark: #0D1752;
+
+            /* Gradients */
+            --gradient-primary: linear-gradient(135deg, var(--action-blue), var(--brand-green));
+            --gradient-hero: linear-gradient(135deg, var(--brand-blue) 0%, #1a2a6c 50%, var(--action-blue) 100%);
+
+            /* Shadows */
+            --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.15);
+            --shadow-xl: 0 25px 50px rgba(0, 0, 0, 0.2);
+            --shadow-glow: 0 0 40px rgba(39, 251, 107, 0.3);
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            color: var(--text);
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-primary);
+            background: var(--white);
             line-height: 1.6;
             overflow-x: hidden;
         }
 
-        /* Navigation */
-        nav {
+        /* =====================
+           NAVIGATION
+        ===================== */
+        .nav {
             position: fixed;
             top: 0;
-            width: 100%;
-            background: rgba(255,255,255,0.95);
-            backdrop-filter: blur(10px);
+            left: 0;
+            right: 0;
             z-index: 1000;
-            padding: 15px 0;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            padding: 1rem 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            box-shadow: var(--shadow-md);
+            padding: 0.75rem 2rem;
         }
 
         .nav-container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 20px;
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
         }
 
-        .logo {
+        .nav-logo {
             font-size: 1.8rem;
             font-weight: 800;
-            color: var(--action-blue);
             text-decoration: none;
+            letter-spacing: -0.5px;
         }
 
-        .logo span {
+        .nav-logo .uni {
+            color: var(--action-blue);
+        }
+
+        .nav-logo .cash {
             color: var(--brand-green);
+        }
+
+        .nav.scrolled .nav-logo .uni {
+            color: var(--action-blue);
+        }
+
+        .nav:not(.scrolled) .nav-logo .uni {
+            color: var(--white);
         }
 
         .nav-links {
             display: flex;
-            gap: 30px;
+            align-items: center;
+            gap: 2.5rem;
             list-style: none;
         }
 
-        .nav-links a {
+        .nav-link {
+            color: var(--white);
             text-decoration: none;
-            color: var(--text);
             font-weight: 500;
-            transition: color 0.3s;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            position: relative;
         }
 
-        .nav-links a:hover {
-            color: var(--primary);
+        .nav.scrolled .nav-link {
+            color: var(--text-secondary);
+        }
+
+        .nav-link:hover {
+            color: var(--brand-green);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--brand-green);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
         }
 
         .nav-cta {
-            background: var(--primary);
-            color: white;
-            padding: 12px 24px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
+            display: flex;
+            gap: 1rem;
         }
 
-        .nav-cta:hover {
-            background: var(--primary-dark);
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: var(--white);
+        }
+
+        .nav.scrolled .btn-outline {
+            border-color: var(--action-blue);
+            color: var(--action-blue);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--brand-green);
+            color: var(--brand-green);
+        }
+
+        .btn-primary {
+            background: var(--brand-green);
+            color: var(--brand-blue);
+            box-shadow: 0 4px 14px rgba(39, 251, 107, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(39, 251, 107, 0.5);
+        }
+
+        .btn-secondary {
+            background: var(--action-blue);
+            color: var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: #1d5ae0;
             transform: translateY(-2px);
         }
 
-        /* Hero Section */
+        .btn-large {
+            padding: 1rem 2rem;
+            font-size: 1.05rem;
+        }
+
+        .btn-icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Mobile Nav Toggle */
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .nav-toggle span {
+            width: 25px;
+            height: 2px;
+            background: var(--white);
+            transition: all 0.3s ease;
+        }
+
+        .nav.scrolled .nav-toggle span {
+            background: var(--brand-blue);
+        }
+
+        /* =====================
+           HERO SECTION
+        ===================== */
         .hero {
             min-height: 100vh;
-            background: linear-gradient(135deg, var(--secondary) 0%, #2d2d5a 100%);
-            display: flex;
-            align-items: center;
-            padding: 100px 20px 60px;
+            background: var(--gradient-hero);
             position: relative;
             overflow: hidden;
+            display: flex;
+            align-items: center;
+            padding: 8rem 2rem 6rem;
         }
 
         .hero::before {
             content: '';
             position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 80%;
-            height: 150%;
-            background: radial-gradient(ellipse, rgba(39,251,107,0.15) 0%, transparent 70%);
-            pointer-events: none;
+            top: -200px;
+            right: -200px;
+            width: 600px;
+            height: 600px;
+            background: var(--brand-green);
+            opacity: 0.08;
+            border-radius: 50%;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -300px;
+            left: -200px;
+            width: 500px;
+            height: 500px;
+            background: var(--action-blue);
+            opacity: 0.1;
+            border-radius: 50%;
+            animation: float 15s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(20px, -30px) rotate(5deg); }
+            50% { transform: translate(-20px, 20px) rotate(-5deg); }
+            75% { transform: translate(30px, 10px) rotate(3deg); }
         }
 
         .hero-container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 60px;
+            gap: 4rem;
             align-items: center;
+            position: relative;
+            z-index: 1;
         }
 
         .hero-content {
-            color: white;
+            color: var(--white);
         }
 
         .hero-badge {
-            display: inline-block;
-            background: rgba(39,251,107,0.2);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(39, 251, 107, 0.15);
+            border: 1px solid rgba(39, 251, 107, 0.3);
             color: var(--brand-green);
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.9rem;
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
             font-weight: 600;
-            margin-bottom: 20px;
+            margin-bottom: 1.5rem;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(39, 251, 107, 0.4); }
+            50% { box-shadow: 0 0 0 10px rgba(39, 251, 107, 0); }
+        }
+
+        .hero-badge-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--brand-green);
+            border-radius: 50%;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 3.8rem;
             font-weight: 800;
             line-height: 1.1;
-            margin-bottom: 20px;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
         }
 
-        .hero h1 span {
-            color: var(--primary);
+        .hero h1 .highlight {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        .hero p {
+        .hero-description {
             font-size: 1.2rem;
             opacity: 0.9;
-            margin-bottom: 30px;
-            max-width: 500px;
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+            max-width: 540px;
         }
 
         .hero-cta {
             display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 3rem;
         }
 
-        .btn-primary {
-            background: var(--primary);
-            color: white;
-            padding: 16px 32px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
+        .hero-stats {
+            display: flex;
+            gap: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .btn-primary:hover {
-            background: var(--primary-dark);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(41,107,255,0.3);
+        .stat-item {
+            text-align: left;
         }
 
-        .btn-secondary {
-            background: transparent;
-            color: white;
-            padding: 16px 32px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            border: 2px solid rgba(255,255,255,0.3);
-            transition: all 0.3s;
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--brand-green);
+            line-height: 1;
         }
 
-        .btn-secondary:hover {
-            background: rgba(255,255,255,0.1);
-            border-color: var(--primary);
+        .stat-label {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 0.25rem;
         }
 
+        /* Hero Visual / Phone Mockup */
         .hero-visual {
             position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .phone-mockup {
-            background: linear-gradient(145deg, #2a2a4a, #1a1a3e);
-            border-radius: 40px;
-            padding: 15px;
-            max-width: 320px;
-            margin: 0 auto;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
-            animation: float 4s ease-in-out infinite;
+            position: relative;
+            width: 320px;
+            height: 650px;
+            background: linear-gradient(180deg, #1a1a2e 0%, #0f0f1a 100%);
+            border-radius: 45px;
+            padding: 12px;
+            box-shadow: var(--shadow-xl), 0 0 60px rgba(39, 251, 107, 0.2);
+            transform: perspective(1000px) rotateY(-5deg) rotateX(5deg);
+            animation: phoneFloat 6s ease-in-out infinite;
+        }
+
+        @keyframes phoneFloat {
+            0%, 100% { transform: perspective(1000px) rotateY(-5deg) rotateX(5deg) translateY(0); }
+            50% { transform: perspective(1000px) rotateY(-5deg) rotateX(5deg) translateY(-20px); }
         }
 
         .phone-screen {
-            background: white;
-            border-radius: 30px;
-            padding: 30px 20px;
-            min-height: 500px;
+            width: 100%;
+            height: 100%;
+            background: var(--brand-blue);
+            border-radius: 35px;
+            overflow: hidden;
+            position: relative;
         }
 
-        .app-header {
-            text-align: center;
-            margin-bottom: 25px;
+        .phone-notch {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 30px;
+            background: #0f0f1a;
+            border-radius: 0 0 20px 20px;
         }
 
-        .app-logo {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            border-radius: 15px;
-            margin: 0 auto 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            color: white;
-            font-weight: bold;
+        .phone-content {
+            padding: 50px 20px 20px;
+            color: var(--white);
         }
 
-        .app-balance {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: white;
-            padding: 25px;
-            border-radius: 20px;
+        .phone-header {
             text-align: center;
             margin-bottom: 20px;
         }
 
-        .app-balance-label {
-            font-size: 0.85rem;
-            opacity: 0.9;
+        .phone-logo {
+            font-size: 1.4rem;
+            font-weight: 800;
         }
 
-        .app-balance-amount {
-            font-size: 2.2rem;
-            font-weight: 700;
+        .phone-logo .uni { color: var(--action-blue); }
+        .phone-logo .cash { color: var(--brand-green); }
+
+        .phone-greeting {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 15px;
         }
 
-        .app-services {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-        }
-
-        .app-service {
-            background: var(--gray-light);
-            padding: 15px;
-            border-radius: 15px;
+        .phone-balance {
             text-align: center;
+            padding: 25px 0;
         }
 
-        .app-service-icon {
-            font-size: 1.5rem;
-            margin-bottom: 5px;
-        }
-
-        .app-service-name {
+        .balance-label {
             font-size: 0.75rem;
-            font-weight: 600;
-            color: var(--text);
+            color: rgba(255, 255, 255, 0.6);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        /* Stats Section */
-        .stats {
-            background: var(--white);
-            padding: 60px 20px;
+        .balance-value {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--brand-green);
+            margin-top: 5px;
         }
 
-        .stats-container {
-            max-width: 1000px;
-            margin: 0 auto;
+        .phone-actions {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 40px;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .phone-action {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .phone-action-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .phone-action-label {
+            font-size: 0.65rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .phone-transactions {
+            margin-top: 20px;
+        }
+
+        .transactions-header {
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .transaction-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            margin-bottom: 8px;
+        }
+
+        .transaction-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-primary);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
+
+        .transaction-info {
+            flex: 1;
+        }
+
+        .transaction-name {
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .transaction-date {
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .transaction-amount {
+            font-weight: 700;
+            color: var(--brand-green);
+        }
+
+        .transaction-amount.negative {
+            color: #ff6b6b;
+        }
+
+        /* Floating Elements */
+        .floating-card {
+            position: absolute;
+            background: var(--white);
+            border-radius: 16px;
+            padding: 16px 20px;
+            box-shadow: var(--shadow-lg);
+            animation: floatCard 4s ease-in-out infinite;
+        }
+
+        @keyframes floatCard {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .floating-card-1 {
+            top: 80px;
+            right: -30px;
+            animation-delay: 0s;
+        }
+
+        .floating-card-2 {
+            bottom: 120px;
+            left: -40px;
+            animation-delay: 1s;
+        }
+
+        .floating-card-3 {
+            top: 200px;
+            left: -60px;
+            animation-delay: 2s;
+        }
+
+        .floating-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-primary);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+
+        .floating-label {
+            font-size: 0.75rem;
+            color: var(--text-light);
+        }
+
+        .floating-value {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--brand-blue);
+        }
+
+        /* =====================
+           TRUST BADGES
+        ===================== */
+        .trust-section {
+            background: var(--white);
+            padding: 3rem 2rem;
+            border-bottom: 1px solid var(--light-border);
+        }
+
+        .trust-container {
+            max-width: 1200px;
+            margin: 0 auto;
             text-align: center;
         }
 
-        .stat-item h3 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--primary);
-        }
-
-        .stat-item p {
+        .trust-label {
+            font-size: 0.85rem;
             color: var(--text-light);
-            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 500;
         }
 
-        /* Services Section */
-        .services {
-            padding: 100px 20px;
-            background: var(--gray-light);
+        .trust-badges {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .trust-badge-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--ghost-white);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .trust-badge-text {
+            text-align: left;
+        }
+
+        .trust-badge-value {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--brand-blue);
+        }
+
+        .trust-badge-label {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        /* =====================
+           PRODUCTS SECTION
+        ===================== */
+        .products-section {
+            padding: 7rem 2rem;
+            background: var(--bg-light);
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .section-header {
             text-align: center;
-            max-width: 600px;
-            margin: 0 auto 60px;
+            max-width: 700px;
+            margin: 0 auto 4rem;
         }
 
-        .section-header h2 {
-            font-size: 2.5rem;
+        .section-badge {
+            display: inline-block;
+            background: rgba(41, 107, 255, 0.1);
+            color: var(--action-blue);
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
             font-weight: 800;
-            color: var(--secondary);
-            margin-bottom: 15px;
+            color: var(--brand-blue);
+            margin-bottom: 1rem;
+            line-height: 1.2;
         }
 
-        .section-header p {
-            color: var(--text-light);
+        .section-description {
             font-size: 1.1rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
         }
 
-        .services-grid {
-            max-width: 1200px;
-            margin: 0 auto;
+        .products-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
         }
 
-        .service-card {
-            background: white;
-            padding: 40px 30px;
-            border-radius: 20px;
-            text-align: center;
-            transition: all 0.3s;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        .product-card {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-md);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
         }
 
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
         }
 
-        .service-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .product-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .product-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient-primary);
             border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 2rem;
-            margin: 0 auto 20px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 8px 24px rgba(41, 107, 255, 0.25);
         }
 
-        .service-card h3 {
-            font-size: 1.3rem;
+        .product-title {
+            font-size: 1.5rem;
             font-weight: 700;
-            margin-bottom: 10px;
-            color: var(--secondary);
-        }
-
-        .service-card p {
-            color: var(--text-light);
-            font-size: 0.95rem;
-            margin-bottom: 15px;
-        }
-
-        .service-highlight {
-            background: rgba(39,251,107,0.15);
             color: var(--brand-blue);
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
+            margin-bottom: 0.75rem;
         }
 
-        /* Why Section */
-        .why {
-            padding: 100px 20px;
-            background: white;
+        .product-description {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
         }
 
-        .why-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-        }
-
-        .why-content h2 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--secondary);
-            margin-bottom: 20px;
-        }
-
-        .why-content p {
-            color: var(--text-light);
-            font-size: 1.1rem;
-            margin-bottom: 30px;
-        }
-
-        .why-list {
+        .product-features {
             list-style: none;
+            margin-bottom: 1.5rem;
         }
 
-        .why-list li {
+        .product-features li {
             display: flex;
-            align-items: flex-start;
-            gap: 15px;
-            margin-bottom: 20px;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.75rem;
         }
 
-        .why-check {
-            width: 28px;
-            height: 28px;
-            background: var(--primary);
+        .product-features li::before {
+            content: '✓';
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 22px;
+            height: 22px;
+            background: rgba(39, 251, 107, 0.15);
+            color: var(--brand-green);
+            border-radius: 50%;
+            font-size: 0.7rem;
+            font-weight: 700;
+        }
+
+        .product-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--action-blue);
+            font-weight: 600;
+            text-decoration: none;
+            transition: gap 0.3s ease;
+        }
+
+        .product-link:hover {
+            gap: 1rem;
+        }
+
+        .product-link svg {
+            width: 20px;
+            height: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .product-link:hover svg {
+            transform: translateX(4px);
+        }
+
+        /* Product Accent Colors */
+        .product-card.remittances .product-icon {
+            background: linear-gradient(135deg, #27FB6B, #00d4aa);
+        }
+
+        .product-card.lending .product-icon {
+            background: linear-gradient(135deg, #296BFF, #6366f1);
+        }
+
+        .product-card.assistance .product-icon {
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+        }
+
+        .product-card.insurance .product-icon {
+            background: linear-gradient(135deg, #ec4899, #8b5cf6);
+        }
+
+        /* =====================
+           HOW IT WORKS
+        ===================== */
+        .how-section {
+            padding: 7rem 2rem;
+            background: var(--white);
+        }
+
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 4rem;
+            position: relative;
+        }
+
+        .steps-container::before {
+            content: '';
+            position: absolute;
+            top: 50px;
+            left: 10%;
+            right: 10%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--action-blue), var(--brand-green));
+            z-index: 0;
+        }
+
+        .step-card {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .step-number {
+            width: 100px;
+            height: 100px;
+            background: var(--white);
+            border: 3px solid var(--brand-green);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            flex-shrink: 0;
-            font-size: 0.9rem;
-        }
-
-        .why-list li span {
-            font-size: 1.05rem;
-            color: var(--text);
-        }
-
-        .why-image {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            border-radius: 30px;
-            padding: 50px;
-            text-align: center;
-        }
-
-        .why-stats {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-        }
-
-        .why-stat {
-            background: rgba(255,255,255,0.15);
-            padding: 30px;
-            border-radius: 20px;
-            color: white;
-        }
-
-        .why-stat h4 {
-            font-size: 2rem;
-            font-weight: 800;
-        }
-
-        .why-stat p {
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-
-        /* Waitlist Section */
-        .waitlist {
-            padding: 100px 20px;
-            background: linear-gradient(135deg, var(--secondary) 0%, #2d2d5a 100%);
-            text-align: center;
-        }
-
-        .waitlist-container {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .waitlist h2 {
             font-size: 2.5rem;
             font-weight: 800;
-            color: white;
-            margin-bottom: 15px;
+            color: var(--brand-blue);
+            margin: 0 auto 1.5rem;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
         }
 
-        .waitlist p {
-            color: rgba(255,255,255,0.8);
-            font-size: 1.1rem;
-            margin-bottom: 40px;
+        .step-card:hover .step-number {
+            background: var(--brand-green);
+            color: var(--brand-blue);
+            transform: scale(1.1);
         }
 
-        .waitlist-form {
+        .step-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--brand-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .step-description {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* =====================
+           FEATURES SECTION
+        ===================== */
+        .features-section {
+            padding: 7rem 2rem;
+            background: var(--brand-blue);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .features-section::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 400px;
+            height: 400px;
+            background: var(--brand-green);
+            opacity: 0.05;
+            border-radius: 50%;
+        }
+
+        .features-section .section-badge {
+            background: rgba(39, 251, 107, 0.2);
+            color: var(--brand-green);
+        }
+
+        .features-section .section-title {
+            color: var(--white);
+        }
+
+        .features-section .section-description {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-primary);
+            border-radius: 16px;
             display: flex;
-            gap: 15px;
-            max-width: 500px;
-            margin: 0 auto;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
         }
 
-        .waitlist-form input {
+        .feature-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 0.75rem;
+        }
+
+        .feature-description {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+        }
+
+        /* =====================
+           TESTIMONIALS
+        ===================== */
+        .testimonials-section {
+            padding: 7rem 2rem;
+            background: var(--bg-light);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .testimonial-rating {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-rating span {
+            color: #fbbf24;
+            font-size: 1.2rem;
+        }
+
+        .testimonial-text {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .author-info {
             flex: 1;
-            padding: 18px 25px;
-            border: none;
-            border-radius: 30px;
-            font-size: 1rem;
-            outline: none;
         }
 
-        .waitlist-form button {
-            background: var(--primary);
-            color: white;
-            padding: 18px 35px;
-            border: none;
-            border-radius: 30px;
-            font-size: 1rem;
+        .author-name {
             font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
+            color: var(--brand-blue);
         }
 
-        .waitlist-form button:hover {
-            background: var(--primary-dark);
+        .author-location {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        /* =====================
+           APP DOWNLOAD CTA
+        ===================== */
+        .app-section {
+            padding: 7rem 2rem;
+            background: var(--white);
+        }
+
+        .app-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .app-content h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--brand-blue);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .app-content p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .app-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .app-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .app-feature-icon {
+            width: 36px;
+            height: 36px;
+            background: rgba(39, 251, 107, 0.15);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--brand-green);
+            font-size: 1rem;
+        }
+
+        .app-feature span {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .app-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .app-button {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: var(--brand-blue);
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .app-button:hover {
+            background: #1a2a6c;
             transform: translateY(-2px);
         }
 
-        .waitlist-note {
-            margin-top: 20px;
-            font-size: 0.9rem;
-            color: rgba(255,255,255,0.6);
+        .app-button-icon {
+            font-size: 1.8rem;
         }
 
-        .waitlist-mascot {
-            max-width: 200px;
-            margin-top: 40px;
-            filter: drop-shadow(0 10px 30px rgba(0,0,0,0.3));
+        .app-button-text {
+            text-align: left;
         }
 
-        /* Footer */
-        footer {
-            background: var(--secondary);
-            color: white;
-            padding: 60px 20px 30px;
+        .app-button-small {
+            font-size: 0.7rem;
+            opacity: 0.8;
+        }
+
+        .app-button-large {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .app-visual {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .app-phone {
+            width: 280px;
+            height: 580px;
+            background: linear-gradient(180deg, #1a1a2e 0%, #0f0f1a 100%);
+            border-radius: 40px;
+            padding: 10px;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .app-phone-screen {
+            width: 100%;
+            height: 100%;
+            background: var(--brand-blue);
+            border-radius: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .app-phone-logo {
+            font-size: 2.5rem;
+            font-weight: 800;
+        }
+
+        .app-phone-logo .uni { color: var(--action-blue); }
+        .app-phone-logo .cash { color: var(--brand-green); }
+
+        /* =====================
+           FINAL CTA
+        ===================== */
+        .cta-section {
+            padding: 7rem 2rem;
+            background: var(--gradient-hero);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 600px;
+            background: var(--brand-green);
+            opacity: 0.05;
+            border-radius: 50%;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2.5rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        /* =====================
+           FOOTER
+        ===================== */
+        .footer {
+            background: var(--brand-blue);
+            color: var(--white);
+            padding: 5rem 2rem 2rem;
         }
 
         .footer-container {
             max-width: 1200px;
             margin: 0 auto;
+        }
+
+        .footer-grid {
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 50px;
+            grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
         }
 
-        .footer-brand h3 {
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: var(--brand-green);
-            margin-bottom: 15px;
-        }
-
-        .footer-brand p {
-            color: rgba(255,255,255,0.7);
-            font-size: 0.95rem;
+        .footer-brand {
             max-width: 300px;
         }
 
-        .footer-links h4 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 20px;
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
         }
 
-        .footer-links ul {
+        .footer-logo .uni { color: var(--action-blue); }
+        .footer-logo .cash { color: var(--brand-green); }
+
+        .footer-tagline {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--brand-green);
+            color: var(--brand-blue);
+        }
+
+        .footer-column h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+        }
+
+        .footer-links {
             list-style: none;
         }
 
         .footer-links li {
-            margin-bottom: 12px;
+            margin-bottom: 0.75rem;
         }
 
         .footer-links a {
-            color: rgba(255,255,255,0.7);
+            color: rgba(255, 255, 255, 0.7);
             text-decoration: none;
-            transition: color 0.3s;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
         }
 
         .footer-links a:hover {
-            color: var(--primary);
+            color: var(--brand-green);
         }
 
         .footer-bottom {
-            max-width: 1200px;
-            margin: 40px auto 0;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            color: rgba(255,255,255,0.5);
-            font-size: 0.9rem;
+            flex-wrap: wrap;
+            gap: 1rem;
         }
 
-        .social-links {
-            display: flex;
-            gap: 15px;
+        .footer-copyright {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.6);
         }
 
-        .social-links a {
-            width: 40px;
-            height: 40px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 50%;
+        .footer-legal {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
+            gap: 2rem;
+        }
+
+        .footer-legal a {
+            color: rgba(255, 255, 255, 0.6);
             text-decoration: none;
-            transition: all 0.3s;
+            font-size: 0.85rem;
+            transition: color 0.3s ease;
         }
 
-        .social-links a:hover {
-            background: var(--primary);
+        .footer-legal a:hover {
+            color: var(--brand-green);
         }
 
-        /* Mobile Menu */
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--secondary);
+        /* =====================
+           RESPONSIVE DESIGN
+        ===================== */
+        @media (max-width: 1200px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
-        /* Responsive */
         @media (max-width: 1024px) {
+            .nav-links {
+                display: none;
+            }
+
+            .nav-toggle {
+                display: flex;
+            }
+
             .hero-container {
                 grid-template-columns: 1fr;
                 text-align: center;
             }
 
-            .hero h1 {
-                font-size: 2.5rem;
+            .hero-content {
+                order: 2;
             }
 
-            .hero p {
-                margin: 0 auto 30px;
+            .hero-visual {
+                order: 1;
+            }
+
+            .hero-description {
+                margin-left: auto;
+                margin-right: auto;
             }
 
             .hero-cta {
                 justify-content: center;
             }
 
-            .hero-visual {
-                display: none;
+            .hero-stats {
+                justify-content: center;
             }
 
-            .services-grid {
+            .phone-mockup {
+                width: 280px;
+                height: 580px;
+            }
+
+            .steps-container {
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            .why-container {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-container {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
+            .steps-container::before {
                 display: none;
             }
 
-            .nav-cta {
-                display: none;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .stats-container {
+            .features-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            .services-grid {
-                grid-template-columns: 1fr;
+            .testimonials-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
 
-            .section-header h2 {
-                font-size: 2rem;
-            }
-
-            .waitlist-form {
-                flex-direction: column;
-            }
-
-            .footer-container {
+            .app-container {
                 grid-template-columns: 1fr;
                 text-align: center;
             }
 
-            .footer-bottom {
-                flex-direction: column;
-                gap: 20px;
+            .app-features {
+                justify-content: center;
+            }
+
+            .app-buttons {
+                justify-content: center;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
-        /* Animations */
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
+        @media (max-width: 768px) {
+            .hero {
+                padding: 6rem 1.5rem 4rem;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-description {
+                font-size: 1rem;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 1.5rem;
+                align-items: center;
+            }
+
+            .stat-item {
+                text-align: center;
+            }
+
+            .trust-badges {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .steps-container {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .app-features {
+                grid-template-columns: 1fr;
+            }
+
+            .app-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cta-section h2 {
+                font-size: 2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-legal {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .phone-mockup {
+                width: 240px;
+                height: 500px;
+            }
+
+            .floating-card {
+                display: none;
+            }
+
+            .btn-large {
+                width: 100%;
+            }
         }
     </style>
 </head>
 <body>
-
     <!-- Navigation -->
-    <nav>
+    <nav class="nav" id="nav">
         <div class="nav-container">
-            <a href="#" class="logo">Uni<span>Cash</span></a>
+            <a href="#" class="nav-logo">
+                <span class="uni">Uni</span><span class="cash">Cash</span>
+            </a>
+
             <ul class="nav-links">
-                <li><a href="#services">Services</a></li>
-                <li><a href="#why">Why Us</a></li>
-                <li><a href="#waitlist">Join Waitlist</a></li>
+                <li><a href="#products" class="nav-link">Products</a></li>
+                <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
+                <li><a href="#features" class="nav-link">Features</a></li>
+                <li><a href="#testimonials" class="nav-link">Reviews</a></li>
             </ul>
-            <a href="#waitlist" class="nav-cta">Get Early Access</a>
-            <button class="mobile-menu-btn">☰</button>
+
+            <div class="nav-cta">
+                <a href="es/index.html" class="btn btn-outline" style="font-size: 0.85rem; padding: 0.5rem 1rem;">Español</a>
+                <a href="#" class="btn btn-outline">Log In</a>
+                <a href="#" class="btn btn-primary">Get Started</a>
+            </div>
+
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </nav>
 
@@ -758,42 +1611,360 @@
     <section class="hero">
         <div class="hero-container">
             <div class="hero-content">
-                <div class="hero-badge">🚀 Launching March 2026</div>
-                <h1>Financial Services <span>Built for You</span></h1>
-                <p>Affordable remittances, instant cash advances, protection plans, and insurance — all in one app designed for Latino immigrants in the US.</p>
+                <div class="hero-badge">
+                    <span class="hero-badge-dot"></span>
+                    Now Available Nationwide
+                </div>
+
+                <h1>Financial Services <span class="highlight">Made Simple</span> for Your Family</h1>
+
+                <p class="hero-description">
+                    UniCash empowers the Latin community with accessible remittances, instant cash advances, comprehensive assistance plans, and affordable auto insurance. All in one app.
+                </p>
+
                 <div class="hero-cta">
-                    <a href="#waitlist" class="btn-primary">Join the Waitlist →</a>
-                    <a href="#services" class="btn-secondary">Learn More</a>
+                    <a href="#" class="btn btn-primary btn-large">
+                        Get Started Free
+                        <svg class="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                        </svg>
+                    </a>
+                    <a href="#products" class="btn btn-outline btn-large">Explore Products</a>
+                </div>
+
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-value">$50M+</div>
+                        <div class="stat-label">Money Transferred</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">100K+</div>
+                        <div class="stat-label">Happy Customers</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">4.9★</div>
+                        <div class="stat-label">App Store Rating</div>
+                    </div>
                 </div>
             </div>
+
             <div class="hero-visual">
                 <div class="phone-mockup">
                     <div class="phone-screen">
-                        <div class="app-header">
-                            <div class="app-logo">U</div>
-                            <div style="font-weight: 600; color: #1a1a2e;">Welcome back!</div>
+                        <div class="phone-notch"></div>
+                        <div class="phone-content">
+                            <div class="phone-header">
+                                <div class="phone-logo"><span class="uni">Uni</span><span class="cash">Cash</span></div>
+                                <div class="phone-greeting">Welcome back, Maria!</div>
+                            </div>
+
+                            <div class="phone-balance">
+                                <div class="balance-label">Available Credit</div>
+                                <div class="balance-value">$2,458.50</div>
+                            </div>
+
+                            <div class="phone-actions">
+                                <div class="phone-action">
+                                    <div class="phone-action-icon"><i data-lucide="send" style="width:24px;height:24px;color:var(--brand-green)"></i></div>
+                                    <div class="phone-action-label">Send</div>
+                                </div>
+                                <div class="phone-action">
+                                    <div class="phone-action-icon"><i data-lucide="banknote" style="width:24px;height:24px;color:var(--brand-green)"></i></div>
+                                    <div class="phone-action-label">Advance</div>
+                                </div>
+                                <div class="phone-action">
+                                    <div class="phone-action-icon"><i data-lucide="shield-check" style="width:24px;height:24px;color:var(--brand-green)"></i></div>
+                                    <div class="phone-action-label">Assist</div>
+                                </div>
+                                <div class="phone-action">
+                                    <div class="phone-action-icon"><i data-lucide="car" style="width:24px;height:24px;color:var(--brand-green)"></i></div>
+                                    <div class="phone-action-label">Insurance</div>
+                                </div>
+                            </div>
+
+                            <div class="phone-transactions">
+                                <div class="transactions-header">Recent Activity</div>
+                                <div class="transaction-item">
+                                    <div class="transaction-icon"><i data-lucide="globe" style="width:20px;height:20px;color:#fff"></i></div>
+                                    <div class="transaction-info">
+                                        <div class="transaction-name">Sent to Mexico</div>
+                                        <div class="transaction-date">Today, 2:30 PM</div>
+                                    </div>
+                                    <div class="transaction-amount negative">-$500</div>
+                                </div>
+                                <div class="transaction-item">
+                                    <div class="transaction-icon"><i data-lucide="wallet" style="width:20px;height:20px;color:#fff"></i></div>
+                                    <div class="transaction-info">
+                                        <div class="transaction-name">Cash Advance</div>
+                                        <div class="transaction-date">Yesterday</div>
+                                    </div>
+                                    <div class="transaction-amount">+$250</div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="app-balance">
-                            <div class="app-balance-label">Available Balance</div>
-                            <div class="app-balance-amount">$1,250.00</div>
+                    </div>
+                </div>
+
+                <!-- Floating Cards -->
+                <div class="floating-card floating-card-1">
+                    <div class="floating-icon"><i data-lucide="check" style="width:20px;height:20px;color:#fff"></i></div>
+                    <div class="floating-label">Transfer Complete</div>
+                    <div class="floating-value">$500 to Mexico</div>
+                </div>
+
+                <div class="floating-card floating-card-2">
+                    <div class="floating-icon"><i data-lucide="lock" style="width:20px;height:20px;color:#fff"></i></div>
+                    <div class="floating-label">Secured by</div>
+                    <div class="floating-value">Bank-Level Encryption</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Section -->
+    <section class="trust-section">
+        <div class="trust-container">
+            <div class="trust-label">Trusted by families across America</div>
+            <div class="trust-badges">
+                <div class="trust-badge">
+                    <div class="trust-badge-icon"><i data-lucide="shield" style="width:24px;height:24px;color:var(--action-blue)"></i></div>
+                    <div class="trust-badge-text">
+                        <div class="trust-badge-value">Bank-Level Security</div>
+                        <div class="trust-badge-label">256-bit encryption</div>
+                    </div>
+                </div>
+                <div class="trust-badge">
+                    <div class="trust-badge-icon"><i data-lucide="zap" style="width:24px;height:24px;color:var(--action-blue)"></i></div>
+                    <div class="trust-badge-text">
+                        <div class="trust-badge-value">Instant Transfers</div>
+                        <div class="trust-badge-label">Money arrives in minutes</div>
+                    </div>
+                </div>
+                <div class="trust-badge">
+                    <div class="trust-badge-icon"><i data-lucide="message-circle" style="width:24px;height:24px;color:var(--action-blue)"></i></div>
+                    <div class="trust-badge-text">
+                        <div class="trust-badge-value">24/7 Support</div>
+                        <div class="trust-badge-label">English & Spanish</div>
+                    </div>
+                </div>
+                <div class="trust-badge">
+                    <div class="trust-badge-icon"><i data-lucide="badge-check" style="width:24px;height:24px;color:var(--action-blue)"></i></div>
+                    <div class="trust-badge-text">
+                        <div class="trust-badge-value">Licensed & Regulated</div>
+                        <div class="trust-badge-label">All 50 states</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products-section" id="products">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-badge">Our Products</span>
+                <h2 class="section-title">Everything Your Family Needs in One App</h2>
+                <p class="section-description">From sending money home to protecting your car, UniCash provides comprehensive financial services designed for the Latin community.</p>
+            </div>
+
+            <div class="products-grid">
+                <!-- Remittances -->
+                <div class="product-card remittances">
+                    <div class="product-icon"><i data-lucide="send" style="width:32px;height:32px;color:#fff"></i></div>
+                    <h3 class="product-title">International Remittances</h3>
+                    <p class="product-description">Send money to family in Mexico, Guatemala, El Salvador, Colombia, and 20+ countries with the best exchange rates and lowest fees.</p>
+                    <ul class="product-features">
+                        <li>Transfers arrive in minutes</li>
+                        <li>Best exchange rates guaranteed</li>
+                        <li>Cash pickup or bank deposit</li>
+                        <li>Track transfers in real-time</li>
+                    </ul>
+                    <a href="#" class="product-link">
+                        Send Money Now
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                    </a>
+                </div>
+
+                <!-- Cash Advances -->
+                <div class="product-card lending">
+                    <div class="product-icon"><i data-lucide="banknote" style="width:32px;height:32px;color:#fff"></i></div>
+                    <h3 class="product-title">Instant Cash Advances</h3>
+                    <p class="product-description">Get up to $500 instantly when you need it most. No credit check required, no hidden fees, and flexible repayment options.</p>
+                    <ul class="product-features">
+                        <li>Approval in 2 minutes</li>
+                        <li>No credit check required</li>
+                        <li>0% APR for first advance</li>
+                        <li>Automatic repayment</li>
+                    </ul>
+                    <a href="#" class="product-link">
+                        Get Cash Now
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                    </a>
+                </div>
+
+                <!-- Assistance Plans -->
+                <div class="product-card assistance">
+                    <div class="product-icon"><i data-lucide="shield-check" style="width:32px;height:32px;color:#fff"></i></div>
+                    <h3 class="product-title">Assistance Plans</h3>
+                    <p class="product-description">Comprehensive protection for you and your family including 24/7 roadside assistance, telehealth, legal support, and more.</p>
+                    <ul class="product-features">
+                        <li>24/7 roadside assistance</li>
+                        <li>Telehealth consultations</li>
+                        <li>Legal & immigration help</li>
+                        <li>Plans starting at $9.99/mo</li>
+                    </ul>
+                    <a href="#" class="product-link">
+                        View Plans
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                    </a>
+                </div>
+
+                <!-- Auto Insurance -->
+                <div class="product-card insurance">
+                    <div class="product-icon"><i data-lucide="car" style="width:32px;height:32px;color:#fff"></i></div>
+                    <h3 class="product-title">Auto Insurance</h3>
+                    <p class="product-description">Compare quotes from top carriers and save up to 40% on your auto insurance. Coverage options for every budget and driving history.</p>
+                    <ul class="product-features">
+                        <li>Compare multiple carriers</li>
+                        <li>Save up to 40%</li>
+                        <li>No license? No problem</li>
+                        <li>Instant proof of insurance</li>
+                    </ul>
+                    <a href="#" class="product-link">
+                        Get a Quote
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-section" id="how-it-works">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-badge">How It Works</span>
+                <h2 class="section-title">Get Started in Minutes</h2>
+                <p class="section-description">Join thousands of families who trust UniCash for their financial needs. It's quick, easy, and secure.</p>
+            </div>
+
+            <div class="steps-container">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Download the App</h3>
+                    <p class="step-description">Get UniCash free on iOS or Android. Available in English and Spanish.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Create Account</h3>
+                    <p class="step-description">Sign up in under 2 minutes with just your email and basic info.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Verify Identity</h3>
+                    <p class="step-description">Quick ID verification to unlock all features and higher limits.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">Start Using UniCash</h3>
+                    <p class="step-description">Send money, get advances, and access all our services instantly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section" id="features">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-badge">Why UniCash</span>
+                <h2 class="section-title">Built for Your Community</h2>
+                <p class="section-description">We understand the unique financial needs of Latin families in America. That's why we built UniCash from the ground up to serve you better.</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i data-lucide="globe" style="width:28px;height:28px;color:#fff"></i></div>
+                    <h3 class="feature-title">Bilingual Support</h3>
+                    <p class="feature-description">Full app experience and customer support in both English and Spanish. Communicate however you're most comfortable.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i data-lucide="credit-card" style="width:28px;height:28px;color:#fff"></i></div>
+                    <h3 class="feature-title">No Credit Needed</h3>
+                    <p class="feature-description">We don't use traditional credit scores. Build your financial future with us regardless of your credit history.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i data-lucide="zap" style="width:28px;height:28px;color:#fff"></i></div>
+                    <h3 class="feature-title">Instant Everything</h3>
+                    <p class="feature-description">Instant transfers, instant approvals, instant access. We know you don't have time to wait.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i data-lucide="lock" style="width:28px;height:28px;color:#fff"></i></div>
+                    <h3 class="feature-title">Bank-Level Security</h3>
+                    <p class="feature-description">Your money and data are protected with the same encryption used by major banks. Licensed in all 50 states.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i data-lucide="smartphone" style="width:28px;height:28px;color:#fff"></i></div>
+                    <h3 class="feature-title">All-in-One App</h3>
+                    <p class="feature-description">No need for multiple apps. Remittances, advances, insurance, and assistance all in one place.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i data-lucide="piggy-bank" style="width:28px;height:28px;color:#fff"></i></div>
+                    <h3 class="feature-title">Lowest Fees</h3>
+                    <p class="feature-description">We're committed to keeping our fees the lowest in the industry. More money for you and your family.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials-section" id="testimonials">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-badge">Customer Stories</span>
+                <h2 class="section-title">Loved by Families Everywhere</h2>
+                <p class="section-description">Join over 100,000 families who trust UniCash for their financial needs.</p>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+                    <p class="testimonial-text">"I've been sending money to my mom in Mexico for years. UniCash has the best rates I've ever found, and it arrives in minutes. My family loves it!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MR</div>
+                        <div class="author-info">
+                            <div class="author-name">Maria Rodriguez</div>
+                            <div class="author-location">Los Angeles, CA</div>
                         </div>
-                        <div class="app-services">
-                            <div class="app-service">
-                                <div class="app-service-icon">💸</div>
-                                <div class="app-service-name">Send Money</div>
-                            </div>
-                            <div class="app-service">
-                                <div class="app-service-icon">💵</div>
-                                <div class="app-service-name">Cash Advance</div>
-                            </div>
-                            <div class="app-service">
-                                <div class="app-service-icon">🛡️</div>
-                                <div class="app-service-name">Plans</div>
-                            </div>
-                            <div class="app-service">
-                                <div class="app-service-icon">🚗</div>
-                                <div class="app-service-name">Insurance</div>
-                            </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+                    <p class="testimonial-text">"The cash advance saved me when my car broke down. No credit check, money in my account in minutes. I was back on the road the same day!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">CG</div>
+                        <div class="author-info">
+                            <div class="author-name">Carlos Garcia</div>
+                            <div class="author-location">Houston, TX</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+                    <p class="testimonial-text">"Having roadside assistance, insurance, and money transfers all in one app is amazing. The Spanish support team is so helpful. Highly recommend!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">AL</div>
+                        <div class="author-info">
+                            <div class="author-name">Ana Lopez</div>
+                            <div class="author-location">Miami, FL</div>
                         </div>
                     </div>
                 </div>
@@ -801,192 +1972,194 @@
         </div>
     </section>
 
-    <!-- Stats Section -->
-    <section class="stats">
-        <div class="stats-container">
-            <div class="stat-item">
-                <h3>2M+</h3>
-                <p>Target Users</p>
-            </div>
-            <div class="stat-item">
-                <h3>$3</h3>
-                <p>Flat Remittance Fee</p>
-            </div>
-            <div class="stat-item">
-                <h3>0%</h3>
-                <p>Hidden Fees</p>
-            </div>
-            <div class="stat-item">
-                <h3>24/7</h3>
-                <p>Bilingual Support</p>
-            </div>
-        </div>
-    </section>
+    <!-- App Download Section -->
+    <section class="app-section">
+        <div class="app-container">
+            <div class="app-content">
+                <h2>Download UniCash Today</h2>
+                <p>Join over 100,000 families using UniCash for remittances, cash advances, assistance plans, and auto insurance. Available on iOS and Android.</p>
 
-    <!-- Services Section -->
-    <section class="services" id="services">
-        <div class="section-header">
-            <h2>Everything You Need</h2>
-            <p>Four powerful services designed to help you and your family thrive</p>
-        </div>
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-icon">💸</div>
-                <h3>Cross-Border Remittances</h3>
-                <p>Send money to Mexico, Honduras, Guatemala, El Salvador and more. Real exchange rates, same-day delivery.</p>
-                <span class="service-highlight">$4-8 flat fee</span>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">💵</div>
-                <h3>Cash Advance</h3>
-                <p>Get $50-$500 instantly when you need it. No credit check, flat fee only, auto-repay on payday.</p>
-                <span class="service-highlight">$3-8 flat fee</span>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">🛡️</div>
-                <h3>Assistance Plans</h3>
-                <p>Funeral repatriation, telehealth for you AND family back home, Rx discounts, and emergency support.</p>
-                <span class="service-highlight">$5.99-$14.99/mo</span>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">🚗</div>
-                <h3>Car Insurance</h3>
-                <p>Compare rates from 100+ carriers in under 2 minutes. Buy online or talk to an agent.</p>
-                <span class="service-highlight">Save up to 40%</span>
-            </div>
-        </div>
-    </section>
+                <div class="app-features">
+                    <div class="app-feature">
+                        <div class="app-feature-icon"><i data-lucide="check" style="width:18px;height:18px"></i></div>
+                        <span>100% Free to Download</span>
+                    </div>
+                    <div class="app-feature">
+                        <div class="app-feature-icon"><i data-lucide="check" style="width:18px;height:18px"></i></div>
+                        <span>English & Spanish</span>
+                    </div>
+                    <div class="app-feature">
+                        <div class="app-feature-icon"><i data-lucide="check" style="width:18px;height:18px"></i></div>
+                        <span>No Hidden Fees</span>
+                    </div>
+                    <div class="app-feature">
+                        <div class="app-feature-icon"><i data-lucide="check" style="width:18px;height:18px"></i></div>
+                        <span>24/7 Customer Support</span>
+                    </div>
+                </div>
 
-    <!-- Why Section -->
-    <section class="why" id="why">
-        <div class="why-container">
-            <div class="why-content">
-                <h2>Built by the Community, for the Community</h2>
-                <p>We understand the challenges you face. That's why we created UniCash — a financial platform that puts your needs first.</p>
-                <ul class="why-list">
-                    <li>
-                        <div class="why-check">✓</div>
-                        <span><strong>No SSN required</strong> — Use your ITIN or Matrícula Consular</span>
-                    </li>
-                    <li>
-                        <div class="why-check">✓</div>
-                        <span><strong>100% bilingual</strong> — App and support in English & Spanish</span>
-                    </li>
-                    <li>
-                        <div class="why-check">✓</div>
-                        <span><strong>Transparent pricing</strong> — No hidden fees, ever</span>
-                    </li>
-                    <li>
-                        <div class="why-check">✓</div>
-                        <span><strong>Fast & reliable</strong> — Money arrives same day</span>
-                    </li>
-                    <li>
-                        <div class="why-check">✓</div>
-                        <span><strong>Build credit</strong> — Report payments to help your score</span>
-                    </li>
-                </ul>
+                <div class="app-buttons">
+                    <a href="#" class="app-button">
+                        <span class="app-button-icon"><i data-lucide="apple" style="width:28px;height:28px"></i></span>
+                        <span class="app-button-text">
+                            <span class="app-button-small">Download on the</span>
+                            <span class="app-button-large">App Store</span>
+                        </span>
+                    </a>
+                    <a href="#" class="app-button">
+                        <span class="app-button-icon"><i data-lucide="play" style="width:28px;height:28px"></i></span>
+                        <span class="app-button-text">
+                            <span class="app-button-small">Get it on</span>
+                            <span class="app-button-large">Google Play</span>
+                        </span>
+                    </a>
+                </div>
             </div>
-            <div class="why-image">
-                <div class="why-stats">
-                    <div class="why-stat">
-                        <h4>70%</h4>
-                        <p>of users send remittances monthly</p>
-                    </div>
-                    <div class="why-stat">
-                        <h4>$143</h4>
-                        <p>average annual savings per user</p>
-                    </div>
-                    <div class="why-stat">
-                        <h4>40%</h4>
-                        <p>use our cash advance feature</p>
-                    </div>
-                    <div class="why-stat">
-                        <h4>4.8★</h4>
-                        <p>expected app store rating</p>
+
+            <div class="app-visual">
+                <div class="app-phone">
+                    <div class="app-phone-screen">
+                        <div class="app-phone-logo">
+                            <span class="uni">Uni</span><span class="cash">Cash</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Waitlist Section -->
-    <section class="waitlist" id="waitlist">
-        <div class="waitlist-container">
-            <h2>Be the First to Know</h2>
-            <p>Join our waitlist and get early access when we launch in March 2026. Plus, get exclusive founding member benefits!</p>
-            <form class="waitlist-form" onsubmit="handleWaitlist(event)">
-                <input type="email" placeholder="Enter your email" required id="waitlist-email">
-                <button type="submit">Join Waitlist</button>
-            </form>
-            <p class="waitlist-note">🔒 We respect your privacy. No spam, ever.</p>
-            <img src="mascot-support.png" alt="UniCash Support" class="waitlist-mascot">
+    <!-- Final CTA -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Ready to Get Started?</h2>
+            <p>Join thousands of families who trust UniCash. Send money, get cash advances, and protect what matters most.</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-primary btn-large">Create Free Account</a>
+                <a href="#" class="btn btn-outline btn-large">Talk to Us</a>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer class="footer">
         <div class="footer-container">
-            <div class="footer-brand">
-                <h3>UniCash</h3>
-                <p>Financial services built for Latino immigrants. Affordable, accessible, and designed with you in mind.</p>
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <span class="uni">Uni</span><span class="cash">Cash</span>
+                    </div>
+                    <p class="footer-tagline">Empowering the Latin community with accessible, modern financial services. Send money, get advances, and protect your family—all in one app.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link">f</a>
+                        <a href="#" class="social-link">𝕏</a>
+                        <a href="#" class="social-link">in</a>
+                        <a href="#" class="social-link">ig</a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Products</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Remittances</a></li>
+                        <li><a href="#">Cash Advances</a></li>
+                        <li><a href="#">Assistance Plans</a></li>
+                        <li><a href="#">Auto Insurance</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Status</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Licenses</a></li>
+                        <li><a href="#">Disclosures</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="footer-links">
-                <h4>Services</h4>
-                <ul>
-                    <li><a href="#">Remittances</a></li>
-                    <li><a href="#">Cash Advance</a></li>
-                    <li><a href="#">Assistance Plans</a></li>
-                    <li><a href="#">Car Insurance</a></li>
-                </ul>
-            </div>
-            <div class="footer-links">
-                <h4>Company</h4>
-                <ul>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Careers</a></li>
-                    <li><a href="#">Press</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-links">
-                <h4>Legal</h4>
-                <ul>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Service</a></li>
-                    <li><a href="#">Licenses</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>© 2025 UniCash. All rights reserved.</p>
-            <div class="social-links">
-                <a href="#" title="Facebook">f</a>
-                <a href="#" title="Instagram">📷</a>
-                <a href="#" title="Twitter">𝕏</a>
-                <a href="#" title="LinkedIn">in</a>
+
+            <div class="footer-bottom">
+                <p class="footer-copyright">© 2025 UniCash. All rights reserved. Licensed in all 50 states.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                    <a href="#">Cookies</a>
+                    <a href="#">Accessibility</a>
+                </div>
             </div>
         </div>
     </footer>
 
     <script>
-        function handleWaitlist(e) {
-            e.preventDefault();
-            const email = document.getElementById('waitlist-email').value;
-            alert('Thanks for joining! We\'ll notify you at ' + email + ' when we launch.');
-            document.getElementById('waitlist-email').value = '';
-        }
+        // Navigation scroll effect
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
 
-        // Smooth scrolling
+        // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
                 }
             });
         });
-    </script>
 
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and sections
+        document.querySelectorAll('.product-card, .feature-card, .testimonial-card, .step-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
 </body>
 </html>
