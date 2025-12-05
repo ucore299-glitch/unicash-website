@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UniCash - Here for You When It Matters Most</title>
-    <meta name="description" content="UniCash helps you through life's tough moments with remittances, cash advances, assistance plans, and auto insurance. We've got your back.">
+    <title>UniCash - Aquí Cuando Más Lo Necesitas</title>
+    <meta name="description" content="UniCash te ayuda en los momentos difíciles con remesas, adelantos de efectivo, planes de asistencia y seguro de auto. Te respaldamos.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="../index.html">
     <style>
         * {
             margin: 0;
@@ -17,7 +18,6 @@
         }
 
         :root {
-            /* UniCash Brand Colors */
             --brand-green: #27FB6B;
             --action-blue: #296BFF;
             --brand-blue: #0D1752;
@@ -27,22 +27,14 @@
             --error: #FF0000;
             --mid-grey: #46495C;
             --dark-grey: #1B1B22;
-
-            /* Text Colors */
             --text-primary: #0D1752;
             --text-secondary: #46495C;
             --text-light: #6B7280;
             --text-white: #FFFFFF;
-
-            /* Backgrounds */
             --bg-light: #F9FAFB;
             --bg-dark: #0D1752;
-
-            /* Gradients */
             --gradient-primary: linear-gradient(135deg, var(--action-blue), var(--brand-green));
             --gradient-hero: linear-gradient(135deg, var(--brand-blue) 0%, #1a2a6c 50%, var(--action-blue) 100%);
-
-            /* Shadows */
             --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.06);
             --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
             --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.15);
@@ -50,9 +42,7 @@
             --shadow-glow: 0 0 40px rgba(39, 251, 107, 0.3);
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -62,9 +52,6 @@
             overflow-x: hidden;
         }
 
-        /* =====================
-           NAVIGATION
-        ===================== */
         .nav {
             position: fixed;
             top: 0;
@@ -97,21 +84,10 @@
             letter-spacing: -0.5px;
         }
 
-        .nav-logo .uni {
-            color: var(--action-blue);
-        }
-
-        .nav-logo .cash {
-            color: var(--brand-green);
-        }
-
-        .nav.scrolled .nav-logo .uni {
-            color: var(--action-blue);
-        }
-
-        .nav:not(.scrolled) .nav-logo .uni {
-            color: var(--white);
-        }
+        .nav-logo .uni { color: var(--action-blue); }
+        .nav-logo .cash { color: var(--brand-green); }
+        .nav.scrolled .nav-logo .uni { color: var(--action-blue); }
+        .nav:not(.scrolled) .nav-logo .uni { color: var(--white); }
 
         .nav-links {
             display: flex;
@@ -129,13 +105,8 @@
             position: relative;
         }
 
-        .nav.scrolled .nav-link {
-            color: var(--text-secondary);
-        }
-
-        .nav-link:hover {
-            color: var(--brand-green);
-        }
+        .nav.scrolled .nav-link { color: var(--text-secondary); }
+        .nav-link:hover { color: var(--brand-green); }
 
         .nav-link::after {
             content: '';
@@ -148,9 +119,7 @@
             transition: width 0.3s ease;
         }
 
-        .nav-link:hover::after {
-            width: 100%;
-        }
+        .nav-link:hover::after { width: 100%; }
 
         .nav-cta {
             display: flex;
@@ -199,16 +168,6 @@
             box-shadow: 0 6px 20px rgba(39, 251, 107, 0.5);
         }
 
-        .btn-secondary {
-            background: var(--action-blue);
-            color: var(--white);
-        }
-
-        .btn-secondary:hover {
-            background: #1d5ae0;
-            transform: translateY(-2px);
-        }
-
         .btn-large {
             padding: 1rem 2rem;
             font-size: 1.05rem;
@@ -219,7 +178,6 @@
             height: 20px;
         }
 
-        /* Mobile Nav Toggle */
         .nav-toggle {
             display: none;
             flex-direction: column;
@@ -235,13 +193,8 @@
             transition: all 0.3s ease;
         }
 
-        .nav.scrolled .nav-toggle span {
-            background: var(--brand-blue);
-        }
+        .nav.scrolled .nav-toggle span { background: var(--brand-blue); }
 
-        /* =====================
-           HERO SECTION
-        ===================== */
         .hero {
             min-height: 100vh;
             background: var(--gradient-hero);
@@ -296,9 +249,7 @@
             z-index: 1;
         }
 
-        .hero-content {
-            color: var(--white);
-        }
+        .hero-content { color: var(--white); }
 
         .hero-badge {
             display: inline-flex;
@@ -363,9 +314,7 @@
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .stat-item {
-            text-align: left;
-        }
+        .stat-item { text-align: left; }
 
         .stat-value {
             font-size: 2.5rem;
@@ -380,7 +329,6 @@
             margin-top: 0.25rem;
         }
 
-        /* Hero Visual / Phone Mockup */
         .hero-visual {
             position: relative;
             display: flex;
@@ -498,9 +446,7 @@
             color: rgba(255, 255, 255, 0.7);
         }
 
-        .phone-transactions {
-            margin-top: 20px;
-        }
+        .phone-transactions { margin-top: 20px; }
 
         .transactions-header {
             font-size: 0.8rem;
@@ -530,30 +476,12 @@
             font-size: 1rem;
         }
 
-        .transaction-info {
-            flex: 1;
-        }
+        .transaction-info { flex: 1; }
+        .transaction-name { font-size: 0.85rem; font-weight: 600; }
+        .transaction-date { font-size: 0.7rem; color: rgba(255, 255, 255, 0.5); }
+        .transaction-amount { font-weight: 700; color: var(--brand-green); }
+        .transaction-amount.negative { color: #ff6b6b; }
 
-        .transaction-name {
-            font-size: 0.85rem;
-            font-weight: 600;
-        }
-
-        .transaction-date {
-            font-size: 0.7rem;
-            color: rgba(255, 255, 255, 0.5);
-        }
-
-        .transaction-amount {
-            font-weight: 700;
-            color: var(--brand-green);
-        }
-
-        .transaction-amount.negative {
-            color: #ff6b6b;
-        }
-
-        /* Floating Elements */
         .floating-card {
             position: absolute;
             background: var(--white);
@@ -568,23 +496,8 @@
             50% { transform: translateY(-15px); }
         }
 
-        .floating-card-1 {
-            top: 80px;
-            right: -30px;
-            animation-delay: 0s;
-        }
-
-        .floating-card-2 {
-            bottom: 120px;
-            left: -40px;
-            animation-delay: 1s;
-        }
-
-        .floating-card-3 {
-            top: 200px;
-            left: -60px;
-            animation-delay: 2s;
-        }
+        .floating-card-1 { top: 80px; right: -30px; animation-delay: 0s; }
+        .floating-card-2 { bottom: 120px; left: -40px; animation-delay: 1s; }
 
         .floating-icon {
             width: 40px;
@@ -599,20 +512,9 @@
             margin-bottom: 8px;
         }
 
-        .floating-label {
-            font-size: 0.75rem;
-            color: var(--text-light);
-        }
+        .floating-label { font-size: 0.75rem; color: var(--text-light); }
+        .floating-value { font-size: 1.1rem; font-weight: 700; color: var(--brand-blue); }
 
-        .floating-value {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--brand-blue);
-        }
-
-        /* =====================
-           TRUST BADGES
-        ===================== */
         .trust-section {
             background: var(--white);
             padding: 3rem 2rem;
@@ -660,24 +562,10 @@
             font-size: 1.5rem;
         }
 
-        .trust-badge-text {
-            text-align: left;
-        }
+        .trust-badge-text { text-align: left; }
+        .trust-badge-value { font-size: 1.2rem; font-weight: 700; color: var(--brand-blue); }
+        .trust-badge-label { font-size: 0.8rem; color: var(--text-light); }
 
-        .trust-badge-value {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--brand-blue);
-        }
-
-        .trust-badge-label {
-            font-size: 0.8rem;
-            color: var(--text-light);
-        }
-
-        /* =====================
-           PRODUCTS SECTION
-        ===================== */
         .products-section {
             padding: 7rem 2rem;
             background: var(--bg-light);
@@ -754,9 +642,7 @@
             box-shadow: var(--shadow-xl);
         }
 
-        .product-card:hover::before {
-            transform: scaleX(1);
-        }
+        .product-card:hover::before { transform: scaleX(1); }
 
         .product-icon {
             width: 70px;
@@ -823,40 +709,15 @@
             transition: gap 0.3s ease;
         }
 
-        .product-link:hover {
-            gap: 1rem;
-        }
+        .product-link:hover { gap: 1rem; }
+        .product-link svg { width: 20px; height: 20px; transition: transform 0.3s ease; }
+        .product-link:hover svg { transform: translateX(4px); }
 
-        .product-link svg {
-            width: 20px;
-            height: 20px;
-            transition: transform 0.3s ease;
-        }
+        .product-card.remittances .product-icon { background: linear-gradient(135deg, #27FB6B, #00d4aa); }
+        .product-card.lending .product-icon { background: linear-gradient(135deg, #296BFF, #6366f1); }
+        .product-card.assistance .product-icon { background: linear-gradient(135deg, #f59e0b, #f97316); }
+        .product-card.insurance .product-icon { background: linear-gradient(135deg, #ec4899, #8b5cf6); }
 
-        .product-link:hover svg {
-            transform: translateX(4px);
-        }
-
-        /* Product Accent Colors */
-        .product-card.remittances .product-icon {
-            background: linear-gradient(135deg, #27FB6B, #00d4aa);
-        }
-
-        .product-card.lending .product-icon {
-            background: linear-gradient(135deg, #296BFF, #6366f1);
-        }
-
-        .product-card.assistance .product-icon {
-            background: linear-gradient(135deg, #f59e0b, #f97316);
-        }
-
-        .product-card.insurance .product-icon {
-            background: linear-gradient(135deg, #ec4899, #8b5cf6);
-        }
-
-        /* =====================
-           HOW IT WORKS
-        ===================== */
         .how-section {
             padding: 7rem 2rem;
             background: var(--white);
@@ -923,9 +784,6 @@
             line-height: 1.6;
         }
 
-        /* =====================
-           FEATURES SECTION
-        ===================== */
         .features-section {
             padding: 7rem 2rem;
             background: var(--brand-blue);
@@ -950,13 +808,8 @@
             color: var(--brand-green);
         }
 
-        .features-section .section-title {
-            color: var(--white);
-        }
-
-        .features-section .section-description {
-            color: rgba(255, 255, 255, 0.8);
-        }
+        .features-section .section-title { color: var(--white); }
+        .features-section .section-description { color: rgba(255, 255, 255, 0.8); }
 
         .features-grid {
             display: grid;
@@ -1003,224 +856,6 @@
             line-height: 1.6;
         }
 
-        /* =====================
-           TESTIMONIALS
-        ===================== */
-        .testimonials-section {
-            padding: 7rem 2rem;
-            background: var(--bg-light);
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-top: 4rem;
-        }
-
-        .testimonial-card {
-            background: var(--white);
-            border-radius: 24px;
-            padding: 2rem;
-            box-shadow: var(--shadow-md);
-            transition: all 0.3s ease;
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .testimonial-rating {
-            display: flex;
-            gap: 4px;
-            margin-bottom: 1rem;
-        }
-
-        .testimonial-rating span {
-            color: #fbbf24;
-            font-size: 1.2rem;
-        }
-
-        .testimonial-text {
-            font-size: 1rem;
-            color: var(--text-secondary);
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-            font-style: italic;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .author-avatar {
-            width: 50px;
-            height: 50px;
-            background: var(--gradient-primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            font-size: 1.2rem;
-            font-weight: 700;
-        }
-
-        .author-info {
-            flex: 1;
-        }
-
-        .author-name {
-            font-weight: 600;
-            color: var(--brand-blue);
-        }
-
-        .author-location {
-            font-size: 0.85rem;
-            color: var(--text-light);
-        }
-
-        /* =====================
-           APP DOWNLOAD CTA
-        ===================== */
-        .app-section {
-            padding: 7rem 2rem;
-            background: var(--white);
-        }
-
-        .app-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .app-content h2 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--brand-blue);
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-
-        .app-content p {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-            line-height: 1.7;
-        }
-
-        .app-features {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .app-feature {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .app-feature-icon {
-            width: 36px;
-            height: 36px;
-            background: rgba(39, 251, 107, 0.15);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--brand-green);
-            font-size: 1rem;
-        }
-
-        .app-feature span {
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-        }
-
-        .app-buttons {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .app-button {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            background: var(--brand-blue);
-            color: var(--white);
-            padding: 0.75rem 1.5rem;
-            border-radius: 12px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .app-button:hover {
-            background: #1a2a6c;
-            transform: translateY(-2px);
-        }
-
-        .app-button-icon {
-            font-size: 1.8rem;
-        }
-
-        .app-button-text {
-            text-align: left;
-        }
-
-        .app-button-small {
-            font-size: 0.7rem;
-            opacity: 0.8;
-        }
-
-        .app-button-large {
-            font-size: 1rem;
-            font-weight: 600;
-        }
-
-        .app-visual {
-            position: relative;
-            display: flex;
-            justify-content: center;
-        }
-
-        .app-phone {
-            width: 280px;
-            height: 580px;
-            background: linear-gradient(180deg, #1a1a2e 0%, #0f0f1a 100%);
-            border-radius: 40px;
-            padding: 10px;
-            box-shadow: var(--shadow-xl);
-        }
-
-        .app-phone-screen {
-            width: 100%;
-            height: 100%;
-            background: var(--brand-blue);
-            border-radius: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .app-phone-logo {
-            font-size: 2.5rem;
-            font-weight: 800;
-        }
-
-        .app-phone-logo .uni { color: var(--action-blue); }
-        .app-phone-logo .cash { color: var(--brand-green); }
-
-        /* =====================
-           FINAL CTA
-        ===================== */
         .cta-section {
             padding: 7rem 2rem;
             background: var(--gradient-hero);
@@ -1268,9 +903,6 @@
             justify-content: center;
         }
 
-        /* =====================
-           FOOTER
-        ===================== */
         .footer {
             background: var(--brand-blue);
             color: var(--white);
@@ -1289,9 +921,7 @@
             margin-bottom: 4rem;
         }
 
-        .footer-brand {
-            max-width: 300px;
-        }
+        .footer-brand { max-width: 300px; }
 
         .footer-logo {
             font-size: 2rem;
@@ -1339,13 +969,8 @@
             color: var(--white);
         }
 
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 0.75rem;
-        }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 0.75rem; }
 
         .footer-links a {
             color: rgba(255, 255, 255, 0.7);
@@ -1354,9 +979,7 @@
             transition: color 0.3s ease;
         }
 
-        .footer-links a:hover {
-            color: var(--brand-green);
-        }
+        .footer-links a:hover { color: var(--brand-green); }
 
         .footer-bottom {
             padding-top: 2rem;
@@ -1385,201 +1008,56 @@
             transition: color 0.3s ease;
         }
 
-        .footer-legal a:hover {
-            color: var(--brand-green);
-        }
+        .footer-legal a:hover { color: var(--brand-green); }
 
-        /* =====================
-           RESPONSIVE DESIGN
-        ===================== */
         @media (max-width: 1200px) {
-            .hero h1 {
-                font-size: 3rem;
-            }
-
-            .products-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+            .hero h1 { font-size: 3rem; }
+            .products-grid { grid-template-columns: repeat(2, 1fr); }
         }
 
         @media (max-width: 1024px) {
-            .nav-links {
-                display: none;
-            }
-
-            .nav-toggle {
-                display: flex;
-            }
-
-            .hero-container {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .hero-content {
-                order: 2;
-            }
-
-            .hero-visual {
-                order: 1;
-            }
-
-            .hero-description {
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            .hero-cta {
-                justify-content: center;
-            }
-
-            .hero-stats {
-                justify-content: center;
-            }
-
-            .phone-mockup {
-                width: 280px;
-                height: 580px;
-            }
-
-            .steps-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .steps-container::before {
-                display: none;
-            }
-
-            .features-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .testimonials-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .app-container {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .app-features {
-                justify-content: center;
-            }
-
-            .app-buttons {
-                justify-content: center;
-            }
-
-            .footer-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+            .nav-links { display: none; }
+            .nav-toggle { display: flex; }
+            .hero-container { grid-template-columns: 1fr; text-align: center; }
+            .hero-content { order: 2; }
+            .hero-visual { order: 1; }
+            .hero-description { margin-left: auto; margin-right: auto; }
+            .hero-cta { justify-content: center; }
+            .hero-stats { justify-content: center; }
+            .phone-mockup { width: 280px; height: 580px; }
+            .steps-container { grid-template-columns: repeat(2, 1fr); }
+            .steps-container::before { display: none; }
+            .features-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); }
         }
 
         @media (max-width: 768px) {
-            .hero {
-                padding: 6rem 1.5rem 4rem;
-            }
-
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-
-            .hero-description {
-                font-size: 1rem;
-            }
-
-            .hero-stats {
-                flex-direction: column;
-                gap: 1.5rem;
-                align-items: center;
-            }
-
-            .stat-item {
-                text-align: center;
-            }
-
-            .trust-badges {
-                flex-direction: column;
-                gap: 2rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .products-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .steps-container {
-                grid-template-columns: 1fr;
-            }
-
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .testimonials-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .app-features {
-                grid-template-columns: 1fr;
-            }
-
-            .app-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .cta-section h2 {
-                font-size: 2rem;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .footer-bottom {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .footer-legal {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
+            .hero { padding: 6rem 1.5rem 4rem; }
+            .hero h1 { font-size: 2.2rem; }
+            .hero-description { font-size: 1rem; }
+            .hero-stats { flex-direction: column; gap: 1.5rem; align-items: center; }
+            .stat-item { text-align: center; }
+            .trust-badges { flex-direction: column; gap: 2rem; }
+            .section-title { font-size: 2rem; }
+            .products-grid { grid-template-columns: 1fr; }
+            .steps-container { grid-template-columns: 1fr; }
+            .features-grid { grid-template-columns: 1fr; }
+            .cta-section h2 { font-size: 2rem; }
+            .cta-buttons { flex-direction: column; align-items: center; }
+            .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+            .footer-legal { flex-wrap: wrap; justify-content: center; }
         }
 
         @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-
-            .phone-mockup {
-                width: 240px;
-                height: 500px;
-            }
-
-            .floating-card {
-                display: none;
-            }
-
-            .btn-large {
-                width: 100%;
-            }
+            .hero h1 { font-size: 1.8rem; }
+            .phone-mockup { width: 240px; height: 500px; }
+            .floating-card { display: none; }
+            .btn-large { width: 100%; }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
     <nav class="nav" id="nav">
         <div class="nav-container">
             <a href="#" class="nav-logo">
@@ -1587,16 +1065,15 @@
             </a>
 
             <ul class="nav-links">
-                <li><a href="#products" class="nav-link">Products</a></li>
-                <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
-                <li><a href="#features" class="nav-link">Features</a></li>
-                <li><a href="#testimonials" class="nav-link">Reviews</a></li>
+                <li><a href="#products" class="nav-link">Productos</a></li>
+                <li><a href="#how-it-works" class="nav-link">Cómo Funciona</a></li>
+                <li><a href="#features" class="nav-link">Beneficios</a></li>
             </ul>
 
             <div class="nav-cta">
-                <a href="es/index.html" class="btn btn-outline" style="font-size: 0.85rem; padding: 0.5rem 1rem;">Español</a>
-                <a href="#" class="btn btn-outline">Log In</a>
-                <a href="#" class="btn btn-primary">Get Started</a>
+                <a href="../index.html" class="btn btn-outline" style="font-size: 0.85rem; padding: 0.5rem 1rem;">English</a>
+                <a href="#" class="btn btn-outline">Ingresar</a>
+                <a href="#" class="btn btn-primary">Comenzar</a>
             </div>
 
             <div class="nav-toggle" id="navToggle">
@@ -1607,43 +1084,42 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-container">
             <div class="hero-content">
                 <div class="hero-badge">
                     <span class="hero-badge-dot"></span>
-                    By the Creators of MyBambu
+                    De los Creadores de MyBambu
                 </div>
 
-                <h1>Here Comes <span class="highlight">UniCash!</span></h1>
+                <h1>¡Llega <span class="highlight">UniCash!</span></h1>
 
                 <p class="hero-description">
-                    Life happens. Whether you need to send money home, cover an unexpected expense, protect your family, or get back on the road — UniCash has your back through the hard times.
+                    La vida pasa. Ya sea que necesites enviar dinero a casa, cubrir un gasto inesperado, proteger a tu familia o volver al camino — UniCash te respalda en los momentos difíciles.
                 </p>
 
                 <div class="hero-cta">
                     <a href="#" class="btn btn-primary btn-large">
-                        Get Started Free
+                        Comenzar Gratis
                         <svg class="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                         </svg>
                     </a>
-                    <a href="#products" class="btn btn-outline btn-large">Explore Products</a>
+                    <a href="#products" class="btn btn-outline btn-large">Ver Productos</a>
                 </div>
 
                 <div class="hero-stats">
                     <div class="stat-item">
                         <div class="stat-value">$50M+</div>
-                        <div class="stat-label">Money Transferred</div>
+                        <div class="stat-label">Dinero Transferido</div>
                     </div>
                     <div class="stat-item">
                         <div class="stat-value">100K+</div>
-                        <div class="stat-label">Happy Customers</div>
+                        <div class="stat-label">Clientes Felices</div>
                     </div>
                     <div class="stat-item">
                         <div class="stat-value">4.9★</div>
-                        <div class="stat-label">App Store Rating</div>
+                        <div class="stat-label">Calificación App Store</div>
                     </div>
                 </div>
             </div>
@@ -1655,48 +1131,48 @@
                         <div class="phone-content">
                             <div class="phone-header">
                                 <div class="phone-logo"><span class="uni">Uni</span><span class="cash">Cash</span></div>
-                                <div class="phone-greeting">Welcome back, Maria!</div>
+                                <div class="phone-greeting">¡Bienvenida, María!</div>
                             </div>
 
                             <div class="phone-balance">
-                                <div class="balance-label">Available Credit</div>
+                                <div class="balance-label">Crédito Disponible</div>
                                 <div class="balance-value">$2,458.50</div>
                             </div>
 
                             <div class="phone-actions">
                                 <div class="phone-action">
                                     <div class="phone-action-icon"><i data-lucide="send" style="width:24px;height:24px;color:var(--brand-green)"></i></div>
-                                    <div class="phone-action-label">Send</div>
+                                    <div class="phone-action-label">Enviar</div>
                                 </div>
                                 <div class="phone-action">
                                     <div class="phone-action-icon"><i data-lucide="banknote" style="width:24px;height:24px;color:var(--brand-green)"></i></div>
-                                    <div class="phone-action-label">Advance</div>
+                                    <div class="phone-action-label">Adelanto</div>
                                 </div>
                                 <div class="phone-action">
                                     <div class="phone-action-icon"><i data-lucide="shield-check" style="width:24px;height:24px;color:var(--brand-green)"></i></div>
-                                    <div class="phone-action-label">Assist</div>
+                                    <div class="phone-action-label">Asistencia</div>
                                 </div>
                                 <div class="phone-action">
                                     <div class="phone-action-icon"><i data-lucide="car" style="width:24px;height:24px;color:var(--brand-green)"></i></div>
-                                    <div class="phone-action-label">Insurance</div>
+                                    <div class="phone-action-label">Seguro</div>
                                 </div>
                             </div>
 
                             <div class="phone-transactions">
-                                <div class="transactions-header">Recent Activity</div>
+                                <div class="transactions-header">Actividad Reciente</div>
                                 <div class="transaction-item">
                                     <div class="transaction-icon"><i data-lucide="globe" style="width:20px;height:20px;color:#fff"></i></div>
                                     <div class="transaction-info">
-                                        <div class="transaction-name">Sent to Mexico</div>
-                                        <div class="transaction-date">Today, 2:30 PM</div>
+                                        <div class="transaction-name">Enviado a México</div>
+                                        <div class="transaction-date">Hoy, 2:30 PM</div>
                                     </div>
                                     <div class="transaction-amount negative">-$500</div>
                                 </div>
                                 <div class="transaction-item">
                                     <div class="transaction-icon"><i data-lucide="wallet" style="width:20px;height:20px;color:#fff"></i></div>
                                     <div class="transaction-info">
-                                        <div class="transaction-name">Cash Advance</div>
-                                        <div class="transaction-date">Yesterday</div>
+                                        <div class="transaction-name">Adelanto de Efectivo</div>
+                                        <div class="transaction-date">Ayer</div>
                                     </div>
                                     <div class="transaction-amount">+$250</div>
                                 </div>
@@ -1705,133 +1181,126 @@
                     </div>
                 </div>
 
-                <!-- Floating Cards -->
                 <div class="floating-card floating-card-1">
                     <div class="floating-icon"><i data-lucide="check" style="width:20px;height:20px;color:#fff"></i></div>
-                    <div class="floating-label">Transfer Complete</div>
-                    <div class="floating-value">$500 to Mexico</div>
+                    <div class="floating-label">Transferencia Completa</div>
+                    <div class="floating-value">$500 a México</div>
                 </div>
 
                 <div class="floating-card floating-card-2">
                     <div class="floating-icon"><i data-lucide="lock" style="width:20px;height:20px;color:#fff"></i></div>
-                    <div class="floating-label">Secured by</div>
-                    <div class="floating-value">Bank-Level Encryption</div>
+                    <div class="floating-label">Protegido por</div>
+                    <div class="floating-value">Seguridad Bancaria</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Trust Section -->
     <section class="trust-section">
         <div class="trust-container">
-            <div class="trust-label">Trusted by families across America</div>
+            <div class="trust-label">La confianza de familias en todo América</div>
             <div class="trust-badges">
                 <div class="trust-badge">
                     <div class="trust-badge-icon"><i data-lucide="shield" style="width:24px;height:24px;color:var(--action-blue)"></i></div>
                     <div class="trust-badge-text">
-                        <div class="trust-badge-value">Bank-Level Security</div>
-                        <div class="trust-badge-label">256-bit encryption</div>
+                        <div class="trust-badge-value">Seguridad Bancaria</div>
+                        <div class="trust-badge-label">Encriptación 256-bit</div>
                     </div>
                 </div>
                 <div class="trust-badge">
                     <div class="trust-badge-icon"><i data-lucide="zap" style="width:24px;height:24px;color:var(--action-blue)"></i></div>
                     <div class="trust-badge-text">
-                        <div class="trust-badge-value">Instant Transfers</div>
-                        <div class="trust-badge-label">Money arrives in minutes</div>
+                        <div class="trust-badge-value">Transferencias Instantáneas</div>
+                        <div class="trust-badge-label">El dinero llega en minutos</div>
                     </div>
                 </div>
                 <div class="trust-badge">
                     <div class="trust-badge-icon"><i data-lucide="message-circle" style="width:24px;height:24px;color:var(--action-blue)"></i></div>
                     <div class="trust-badge-text">
-                        <div class="trust-badge-value">24/7 Support</div>
-                        <div class="trust-badge-label">English & Spanish</div>
+                        <div class="trust-badge-value">Soporte 24/7</div>
+                        <div class="trust-badge-label">Inglés y Español</div>
                     </div>
                 </div>
                 <div class="trust-badge">
                     <div class="trust-badge-icon"><i data-lucide="badge-check" style="width:24px;height:24px;color:var(--action-blue)"></i></div>
                     <div class="trust-badge-text">
-                        <div class="trust-badge-value">Licensed & Regulated</div>
-                        <div class="trust-badge-label">All 50 states</div>
+                        <div class="trust-badge-value">Licenciado y Regulado</div>
+                        <div class="trust-badge-label">En los 50 estados</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Products Section -->
     <section class="products-section" id="products">
         <div class="section-container">
             <div class="section-header">
-                <span class="section-badge">Our Products</span>
-                <h2 class="section-title">Everything Your Family Needs in One App</h2>
-                <p class="section-description">From sending money to loved ones to getting cash when you need it most — we're here to support you through life's challenges.</p>
+                <span class="section-badge">Nuestros Productos</span>
+                <h2 class="section-title">Todo lo que Tu Familia Necesita en Una App</h2>
+                <p class="section-description">Desde enviar dinero a tus seres queridos hasta obtener efectivo cuando más lo necesitas — estamos aquí para apoyarte en los desafíos de la vida.</p>
             </div>
 
             <div class="products-grid">
-                <!-- Remittances -->
                 <div class="product-card remittances">
                     <div class="product-icon"><i data-lucide="send" style="width:32px;height:32px;color:#fff"></i></div>
-                    <h3 class="product-title">International Remittances</h3>
-                    <p class="product-description">Send money to family in Mexico, Guatemala, El Salvador, Colombia, and 20+ countries with the best exchange rates and lowest fees.</p>
+                    <h3 class="product-title">Remesas Internacionales</h3>
+                    <p class="product-description">Envía dinero a tu familia en México, Guatemala, El Salvador, Colombia y más de 20 países con las mejores tasas de cambio y las tarifas más bajas.</p>
                     <ul class="product-features">
-                        <li>Transfers arrive in minutes</li>
-                        <li>Best exchange rates guaranteed</li>
-                        <li>Cash pickup or bank deposit</li>
-                        <li>Track transfers in real-time</li>
+                        <li>Las transferencias llegan en minutos</li>
+                        <li>Mejores tasas de cambio garantizadas</li>
+                        <li>Retiro en efectivo o depósito bancario</li>
+                        <li>Rastrea transferencias en tiempo real</li>
                     </ul>
                     <a href="#" class="product-link">
-                        Send Money Now
+                        Enviar Dinero Ahora
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                     </a>
                 </div>
 
-                <!-- Cash Advances -->
                 <div class="product-card lending">
                     <div class="product-icon"><i data-lucide="banknote" style="width:32px;height:32px;color:#fff"></i></div>
-                    <h3 class="product-title">Instant Cash Advances</h3>
-                    <p class="product-description">Get up to $500 instantly when you need it most. No credit check required, no hidden fees, and flexible repayment options.</p>
+                    <h3 class="product-title">Adelantos de Efectivo Instantáneos</h3>
+                    <p class="product-description">Obtén hasta $500 al instante cuando más lo necesitas. Sin verificación de crédito, sin cargos ocultos y opciones de pago flexibles.</p>
                     <ul class="product-features">
-                        <li>Approval in 2 minutes</li>
-                        <li>No credit check required</li>
-                        <li>0% APR for first advance</li>
-                        <li>Automatic repayment</li>
+                        <li>Aprobación en 2 minutos</li>
+                        <li>Sin verificación de crédito</li>
+                        <li>0% APR en tu primer adelanto</li>
+                        <li>Pago automático</li>
                     </ul>
                     <a href="#" class="product-link">
-                        Get Cash Now
+                        Obtener Efectivo Ahora
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                     </a>
                 </div>
 
-                <!-- Assistance Plans -->
                 <div class="product-card assistance">
                     <div class="product-icon"><i data-lucide="shield-check" style="width:32px;height:32px;color:#fff"></i></div>
-                    <h3 class="product-title">Assistance Plans</h3>
-                    <p class="product-description">Comprehensive protection for you and your family including 24/7 roadside assistance, telehealth, legal support, and more.</p>
+                    <h3 class="product-title">Planes de Asistencia</h3>
+                    <p class="product-description">Protección integral para ti y tu familia incluyendo asistencia en carretera 24/7, telesalud, apoyo legal y más.</p>
                     <ul class="product-features">
-                        <li>24/7 roadside assistance</li>
-                        <li>Telehealth consultations</li>
-                        <li>Legal & immigration help</li>
-                        <li>Plans starting at $9.99/mo</li>
+                        <li>Asistencia en carretera 24/7</li>
+                        <li>Consultas de telesalud</li>
+                        <li>Ayuda legal e inmigración</li>
+                        <li>Planes desde $9.99/mes</li>
                     </ul>
                     <a href="#" class="product-link">
-                        View Plans
+                        Ver Planes
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                     </a>
                 </div>
 
-                <!-- Auto Insurance -->
                 <div class="product-card insurance">
                     <div class="product-icon"><i data-lucide="car" style="width:32px;height:32px;color:#fff"></i></div>
-                    <h3 class="product-title">Auto Insurance</h3>
-                    <p class="product-description">Compare quotes from top carriers and save up to 40% on your auto insurance. Coverage options for every budget and driving history.</p>
+                    <h3 class="product-title">Seguro de Auto</h3>
+                    <p class="product-description">Compara cotizaciones de las mejores aseguradoras y ahorra hasta 40% en tu seguro de auto. Opciones de cobertura para todo presupuesto.</p>
                     <ul class="product-features">
-                        <li>Compare multiple carriers</li>
-                        <li>Save up to 40%</li>
-                        <li>No license? No problem</li>
-                        <li>Instant proof of insurance</li>
+                        <li>Compara múltiples aseguradoras</li>
+                        <li>Ahorra hasta 40%</li>
+                        <li>¿Sin licencia? No hay problema</li>
+                        <li>Comprobante de seguro instantáneo</li>
                     </ul>
                     <a href="#" class="product-link">
-                        Get a Quote
+                        Obtener Cotización
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                     </a>
                 </div>
@@ -1839,208 +1308,93 @@
         </div>
     </section>
 
-    <!-- How It Works -->
     <section class="how-section" id="how-it-works">
         <div class="section-container">
             <div class="section-header">
-                <span class="section-badge">How It Works</span>
-                <h2 class="section-title">Get Started in Minutes</h2>
-                <p class="section-description">Join thousands of families who trust UniCash for their financial needs. It's quick, easy, and secure.</p>
+                <span class="section-badge">Cómo Funciona</span>
+                <h2 class="section-title">Comienza en Minutos</h2>
+                <p class="section-description">Únete a miles de familias que confían en UniCash para sus necesidades financieras. Es rápido, fácil y seguro.</p>
             </div>
 
             <div class="steps-container">
                 <div class="step-card">
                     <div class="step-number">1</div>
-                    <h3 class="step-title">Download the App</h3>
-                    <p class="step-description">Get UniCash free on iOS or Android. Available in English and Spanish.</p>
+                    <h3 class="step-title">Descarga la App</h3>
+                    <p class="step-description">Obtén UniCash gratis en iOS o Android. Disponible en inglés y español.</p>
                 </div>
                 <div class="step-card">
                     <div class="step-number">2</div>
-                    <h3 class="step-title">Create Account</h3>
-                    <p class="step-description">Sign up in under 2 minutes with just your email and basic info.</p>
+                    <h3 class="step-title">Crea tu Cuenta</h3>
+                    <p class="step-description">Regístrate en menos de 2 minutos con solo tu email e información básica.</p>
                 </div>
                 <div class="step-card">
                     <div class="step-number">3</div>
-                    <h3 class="step-title">Verify Identity</h3>
-                    <p class="step-description">Quick ID verification to unlock all features and higher limits.</p>
+                    <h3 class="step-title">Verifica tu Identidad</h3>
+                    <p class="step-description">Verificación rápida de ID para desbloquear todas las funciones y límites más altos.</p>
                 </div>
                 <div class="step-card">
                     <div class="step-number">4</div>
-                    <h3 class="step-title">Start Using UniCash</h3>
-                    <p class="step-description">Send money, get advances, and access all our services instantly.</p>
+                    <h3 class="step-title">Comienza a Usar UniCash</h3>
+                    <p class="step-description">Envía dinero, obtén adelantos y accede a todos nuestros servicios al instante.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
     <section class="features-section" id="features">
         <div class="section-container">
             <div class="section-header">
-                <span class="section-badge">Why UniCash</span>
-                <h2 class="section-title">We've Got Your Back</h2>
-                <p class="section-description">Life throws curveballs. We're here to help you catch them. From emergencies to everyday needs, UniCash supports you through it all — no judgment, no barriers.</p>
+                <span class="section-badge">Por Qué UniCash</span>
+                <h2 class="section-title">Te Respaldamos</h2>
+                <p class="section-description">La vida lanza sorpresas. Estamos aquí para ayudarte a manejarlas. Desde emergencias hasta necesidades diarias, UniCash te apoya en todo — sin juicios, sin barreras.</p>
             </div>
 
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon"><i data-lucide="globe" style="width:28px;height:28px;color:#fff"></i></div>
-                    <h3 class="feature-title">Multilingual Support</h3>
-                    <p class="feature-description">Full app experience and customer support in multiple languages. Communicate however you're most comfortable.</p>
+                    <h3 class="feature-title">Soporte Multilingüe</h3>
+                    <p class="feature-description">Experiencia completa de la app y soporte al cliente en múltiples idiomas. Comunícate como te sientas más cómodo.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon"><i data-lucide="credit-card" style="width:28px;height:28px;color:#fff"></i></div>
-                    <h3 class="feature-title">No Credit Needed</h3>
-                    <p class="feature-description">We don't use traditional credit scores. Build your financial future with us regardless of your credit history.</p>
+                    <h3 class="feature-title">Sin Crédito Necesario</h3>
+                    <p class="feature-description">No usamos puntajes de crédito tradicionales. Construye tu futuro financiero con nosotros sin importar tu historial crediticio.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon"><i data-lucide="zap" style="width:28px;height:28px;color:#fff"></i></div>
-                    <h3 class="feature-title">Instant Everything</h3>
-                    <p class="feature-description">Instant transfers, instant approvals, instant access. We know you don't have time to wait.</p>
+                    <h3 class="feature-title">Todo Instantáneo</h3>
+                    <p class="feature-description">Transferencias instantáneas, aprobaciones instantáneas, acceso instantáneo. Sabemos que no tienes tiempo que perder.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon"><i data-lucide="lock" style="width:28px;height:28px;color:#fff"></i></div>
-                    <h3 class="feature-title">Bank-Level Security</h3>
-                    <p class="feature-description">Your money and data are protected with the same encryption used by major banks. Licensed in all 50 states.</p>
+                    <h3 class="feature-title">Seguridad Bancaria</h3>
+                    <p class="feature-description">Tu dinero y datos están protegidos con la misma encriptación usada por los principales bancos. Licenciados en los 50 estados.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon"><i data-lucide="smartphone" style="width:28px;height:28px;color:#fff"></i></div>
-                    <h3 class="feature-title">All-in-One App</h3>
-                    <p class="feature-description">No need for multiple apps. Remittances, advances, insurance, and assistance all in one place.</p>
+                    <h3 class="feature-title">Todo en Una App</h3>
+                    <p class="feature-description">No necesitas múltiples apps. Remesas, adelantos, seguros y asistencia todo en un solo lugar.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon"><i data-lucide="piggy-bank" style="width:28px;height:28px;color:#fff"></i></div>
-                    <h3 class="feature-title">Lowest Fees</h3>
-                    <p class="feature-description">We're committed to keeping our fees the lowest in the industry. More money for you and your family.</p>
+                    <h3 class="feature-title">Las Tarifas Más Bajas</h3>
+                    <p class="feature-description">Nos comprometemos a mantener nuestras tarifas las más bajas de la industria. Más dinero para ti y tu familia.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials -->
-    <section class="testimonials-section" id="testimonials">
-        <div class="section-container">
-            <div class="section-header">
-                <span class="section-badge">Customer Stories</span>
-                <h2 class="section-title">Loved by Families Everywhere</h2>
-                <p class="section-description">Join over 100,000 families who trust UniCash for their financial needs.</p>
-            </div>
-
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-rating">
-                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-                    </div>
-                    <p class="testimonial-text">"I've been sending money to my mom in Mexico for years. UniCash has the best rates I've ever found, and it arrives in minutes. My family loves it!"</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">MR</div>
-                        <div class="author-info">
-                            <div class="author-name">Maria Rodriguez</div>
-                            <div class="author-location">Los Angeles, CA</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="testimonial-rating">
-                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-                    </div>
-                    <p class="testimonial-text">"The cash advance saved me when my car broke down. No credit check, money in my account in minutes. I was back on the road the same day!"</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">CG</div>
-                        <div class="author-info">
-                            <div class="author-name">Carlos Garcia</div>
-                            <div class="author-location">Houston, TX</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="testimonial-rating">
-                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-                    </div>
-                    <p class="testimonial-text">"Having roadside assistance, insurance, and money transfers all in one app is amazing. The Spanish support team is so helpful. Highly recommend!"</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">AL</div>
-                        <div class="author-info">
-                            <div class="author-name">Ana Lopez</div>
-                            <div class="author-location">Miami, FL</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- App Download Section -->
-    <section class="app-section">
-        <div class="app-container">
-            <div class="app-content">
-                <h2>Download UniCash Today</h2>
-                <p>Join over 100,000 families using UniCash for remittances, cash advances, assistance plans, and auto insurance. Available on iOS and Android.</p>
-
-                <div class="app-features">
-                    <div class="app-feature">
-                        <div class="app-feature-icon"><i data-lucide="check" style="width:18px;height:18px"></i></div>
-                        <span>100% Free to Download</span>
-                    </div>
-                    <div class="app-feature">
-                        <div class="app-feature-icon"><i data-lucide="check" style="width:18px;height:18px"></i></div>
-                        <span>English & Spanish</span>
-                    </div>
-                    <div class="app-feature">
-                        <div class="app-feature-icon"><i data-lucide="check" style="width:18px;height:18px"></i></div>
-                        <span>No Hidden Fees</span>
-                    </div>
-                    <div class="app-feature">
-                        <div class="app-feature-icon"><i data-lucide="check" style="width:18px;height:18px"></i></div>
-                        <span>24/7 Customer Support</span>
-                    </div>
-                </div>
-
-                <div class="app-buttons">
-                    <a href="#" class="app-button">
-                        <span class="app-button-icon"><i data-lucide="apple" style="width:28px;height:28px"></i></span>
-                        <span class="app-button-text">
-                            <span class="app-button-small">Download on the</span>
-                            <span class="app-button-large">App Store</span>
-                        </span>
-                    </a>
-                    <a href="#" class="app-button">
-                        <span class="app-button-icon"><i data-lucide="play" style="width:28px;height:28px"></i></span>
-                        <span class="app-button-text">
-                            <span class="app-button-small">Get it on</span>
-                            <span class="app-button-large">Google Play</span>
-                        </span>
-                    </a>
-                </div>
-            </div>
-
-            <div class="app-visual">
-                <div class="app-phone">
-                    <div class="app-phone-screen">
-                        <div class="app-phone-logo">
-                            <span class="uni">Uni</span><span class="cash">Cash</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Final CTA -->
     <section class="cta-section">
         <div class="cta-content">
-            <h2>We're Here When You Need Us</h2>
-            <p>Join thousands of families who count on UniCash through life's ups and downs. We've got your back.</p>
+            <h2>Estamos Aquí Cuando Nos Necesitas</h2>
+            <p>Únete a miles de familias que cuentan con UniCash en los altibajos de la vida. Te respaldamos.</p>
             <div class="cta-buttons">
-                <a href="#" class="btn btn-primary btn-large">Create Free Account</a>
-                <a href="#" class="btn btn-outline btn-large">Talk to Us</a>
+                <a href="#" class="btn btn-primary btn-large">Crear Cuenta Gratis</a>
+                <a href="#" class="btn btn-outline btn-large">Habla con Nosotros</a>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-grid">
@@ -2048,7 +1402,7 @@
                     <div class="footer-logo">
                         <span class="uni">Uni</span><span class="cash">Cash</span>
                     </div>
-                    <p class="footer-tagline">Here for you when it matters most. Send money, get help in emergencies, and protect your family — all in one app.</p>
+                    <p class="footer-tagline">Aquí para ti cuando más lo necesitas. Envía dinero, obtén ayuda en emergencias y protege a tu familia — todo en una app.</p>
                     <div class="footer-social">
                         <a href="#" class="social-link">f</a>
                         <a href="#" class="social-link">𝕏</a>
@@ -2058,60 +1412,59 @@
                 </div>
 
                 <div class="footer-column">
-                    <h4>Products</h4>
+                    <h4>Productos</h4>
                     <ul class="footer-links">
-                        <li><a href="#">Remittances</a></li>
-                        <li><a href="#">Cash Advances</a></li>
-                        <li><a href="#">Assistance Plans</a></li>
-                        <li><a href="#">Auto Insurance</a></li>
+                        <li><a href="#">Remesas</a></li>
+                        <li><a href="#">Adelantos de Efectivo</a></li>
+                        <li><a href="#">Planes de Asistencia</a></li>
+                        <li><a href="#">Seguro de Auto</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-column">
-                    <h4>Company</h4>
+                    <h4>Compañía</h4>
                     <ul class="footer-links">
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Sobre Nosotros</a></li>
+                        <li><a href="#">Empleos</a></li>
+                        <li><a href="#">Prensa</a></li>
                         <li><a href="#">Blog</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-column">
-                    <h4>Support</h4>
+                    <h4>Soporte</h4>
                     <ul class="footer-links">
-                        <li><a href="#">Help Center</a></li>
-                        <li><a href="#">Contact Us</a></li>
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Status</a></li>
+                        <li><a href="#">Centro de Ayuda</a></li>
+                        <li><a href="#">Contáctanos</a></li>
+                        <li><a href="#">Preguntas Frecuentes</a></li>
+                        <li><a href="#">Estado</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-column">
                     <h4>Legal</h4>
                     <ul class="footer-links">
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Licenses</a></li>
-                        <li><a href="#">Disclosures</a></li>
+                        <li><a href="#">Términos de Servicio</a></li>
+                        <li><a href="#">Política de Privacidad</a></li>
+                        <li><a href="#">Licencias</a></li>
+                        <li><a href="#">Divulgaciones</a></li>
                     </ul>
                 </div>
             </div>
 
             <div class="footer-bottom">
-                <p class="footer-copyright">© 2025 UniCash. All rights reserved. Licensed in all 50 states.</p>
+                <p class="footer-copyright">© 2025 UniCash. Todos los derechos reservados. Licenciado en los 50 estados.</p>
                 <div class="footer-legal">
-                    <a href="#">Privacy</a>
-                    <a href="#">Terms</a>
+                    <a href="#">Privacidad</a>
+                    <a href="#">Términos</a>
                     <a href="#">Cookies</a>
-                    <a href="#">Accessibility</a>
+                    <a href="#">Accesibilidad</a>
                 </div>
             </div>
         </div>
     </footer>
 
     <script>
-        // Navigation scroll effect
         const nav = document.getElementById('nav');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
@@ -2121,7 +1474,6 @@
             }
         });
 
-        // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -2135,7 +1487,6 @@
             });
         });
 
-        // Animate elements on scroll
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -2150,15 +1501,13 @@
             });
         }, observerOptions);
 
-        // Observe all cards and sections
-        document.querySelectorAll('.product-card, .feature-card, .testimonial-card, .step-card').forEach(el => {
+        document.querySelectorAll('.product-card, .feature-card, .step-card').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(30px)';
             el.style.transition = 'all 0.6s ease';
             observer.observe(el);
         });
 
-        // Initialize Lucide icons
         lucide.createIcons();
     </script>
 </body>
