@@ -380,7 +380,7 @@
             margin-top: 0.25rem;
         }
 
-        /* Hero Visual / Phone Mockup */
+        /* Hero Visual / Mascot */
         .hero-visual {
             position: relative;
             display: flex;
@@ -388,169 +388,17 @@
             align-items: center;
         }
 
-        .phone-mockup {
-            position: relative;
-            width: 320px;
-            height: 650px;
-            background: linear-gradient(180deg, #1a1a2e 0%, #0f0f1a 100%);
-            border-radius: 45px;
-            padding: 12px;
-            box-shadow: var(--shadow-xl), 0 0 60px rgba(39, 251, 107, 0.2);
-            transform: perspective(1000px) rotateY(-5deg) rotateX(5deg);
-            animation: phoneFloat 6s ease-in-out infinite;
-        }
-
-        @keyframes phoneFloat {
-            0%, 100% { transform: perspective(1000px) rotateY(-5deg) rotateX(5deg) translateY(0); }
-            50% { transform: perspective(1000px) rotateY(-5deg) rotateX(5deg) translateY(-20px); }
-        }
-
-        .phone-screen {
+        .hero-mascot {
+            max-width: 480px;
             width: 100%;
-            height: 100%;
-            background: var(--brand-blue);
-            border-radius: 35px;
-            overflow: hidden;
-            position: relative;
+            height: auto;
+            filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.4));
+            animation: mascotFloat 4s ease-in-out infinite;
         }
 
-        .phone-notch {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 150px;
-            height: 30px;
-            background: #0f0f1a;
-            border-radius: 0 0 20px 20px;
-        }
-
-        .phone-content {
-            padding: 50px 20px 20px;
-            color: var(--white);
-        }
-
-        .phone-header {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .phone-logo {
-            font-size: 1.4rem;
-            font-weight: 800;
-        }
-
-        .phone-logo .uni { color: var(--action-blue); }
-        .phone-logo .cash { color: var(--brand-green); }
-
-        .phone-greeting {
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.7);
-            margin-top: 15px;
-        }
-
-        .phone-balance {
-            text-align: center;
-            padding: 25px 0;
-        }
-
-        .balance-label {
-            font-size: 0.75rem;
-            color: rgba(255, 255, 255, 0.6);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .balance-value {
-            font-size: 2.8rem;
-            font-weight: 800;
-            color: var(--brand-green);
-            margin-top: 5px;
-        }
-
-        .phone-actions {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
-            margin: 20px 0;
-        }
-
-        .phone-action {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .phone-action-icon {
-            width: 50px;
-            height: 50px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-        }
-
-        .phone-action-label {
-            font-size: 0.65rem;
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        .phone-transactions {
-            margin-top: 20px;
-        }
-
-        .transactions-header {
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin-bottom: 10px;
-            color: rgba(255, 255, 255, 0.8);
-        }
-
-        .transaction-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 12px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 12px;
-            margin-bottom: 8px;
-        }
-
-        .transaction-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--gradient-primary);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1rem;
-        }
-
-        .transaction-info {
-            flex: 1;
-        }
-
-        .transaction-name {
-            font-size: 0.85rem;
-            font-weight: 600;
-        }
-
-        .transaction-date {
-            font-size: 0.7rem;
-            color: rgba(255, 255, 255, 0.5);
-        }
-
-        .transaction-amount {
-            font-weight: 700;
-            color: var(--brand-green);
-        }
-
-        .transaction-amount.negative {
-            color: #ff6b6b;
+        @keyframes mascotFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(2deg); }
         }
 
         /* Floating Elements */
@@ -1437,9 +1285,8 @@
                 justify-content: center;
             }
 
-            .phone-mockup {
-                width: 280px;
-                height: 580px;
+            .hero-mascot {
+                max-width: 350px;
             }
 
             .steps-container {
@@ -1563,9 +1410,8 @@
                 font-size: 1.8rem;
             }
 
-            .phone-mockup {
-                width: 240px;
-                height: 500px;
+            .hero-mascot {
+                max-width: 280px;
             }
 
             .floating-card {
@@ -1649,73 +1495,19 @@
             </div>
 
             <div class="hero-visual">
-                <div class="phone-mockup">
-                    <div class="phone-screen">
-                        <div class="phone-notch"></div>
-                        <div class="phone-content">
-                            <div class="phone-header">
-                                <div class="phone-logo"><span class="uni">Uni</span><span class="cash">Cash</span></div>
-                                <div class="phone-greeting">Welcome back, Maria!</div>
-                            </div>
-
-                            <div class="phone-balance">
-                                <div class="balance-label">Available Credit</div>
-                                <div class="balance-value">$2,458.50</div>
-                            </div>
-
-                            <div class="phone-actions">
-                                <div class="phone-action">
-                                    <div class="phone-action-icon"><i data-lucide="send" style="width:24px;height:24px;color:var(--brand-green)"></i></div>
-                                    <div class="phone-action-label">Send</div>
-                                </div>
-                                <div class="phone-action">
-                                    <div class="phone-action-icon"><i data-lucide="banknote" style="width:24px;height:24px;color:var(--brand-green)"></i></div>
-                                    <div class="phone-action-label">Advance</div>
-                                </div>
-                                <div class="phone-action">
-                                    <div class="phone-action-icon"><i data-lucide="shield-check" style="width:24px;height:24px;color:var(--brand-green)"></i></div>
-                                    <div class="phone-action-label">Assist</div>
-                                </div>
-                                <div class="phone-action">
-                                    <div class="phone-action-icon"><i data-lucide="car" style="width:24px;height:24px;color:var(--brand-green)"></i></div>
-                                    <div class="phone-action-label">Insurance</div>
-                                </div>
-                            </div>
-
-                            <div class="phone-transactions">
-                                <div class="transactions-header">Recent Activity</div>
-                                <div class="transaction-item">
-                                    <div class="transaction-icon"><i data-lucide="globe" style="width:20px;height:20px;color:#fff"></i></div>
-                                    <div class="transaction-info">
-                                        <div class="transaction-name">Sent to Mexico</div>
-                                        <div class="transaction-date">Today, 2:30 PM</div>
-                                    </div>
-                                    <div class="transaction-amount negative">-$500</div>
-                                </div>
-                                <div class="transaction-item">
-                                    <div class="transaction-icon"><i data-lucide="wallet" style="width:20px;height:20px;color:#fff"></i></div>
-                                    <div class="transaction-info">
-                                        <div class="transaction-name">Cash Advance</div>
-                                        <div class="transaction-date">Yesterday</div>
-                                    </div>
-                                    <div class="transaction-amount">+$250</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <img src="mascot-hero.png" alt="UniCash Mascot" class="hero-mascot">
 
                 <!-- Floating Cards -->
                 <div class="floating-card floating-card-1">
                     <div class="floating-icon"><i data-lucide="check" style="width:20px;height:20px;color:#fff"></i></div>
                     <div class="floating-label">Transfer Complete</div>
-                    <div class="floating-value">$500 to Mexico</div>
+                    <div class="floating-value">$500 Sent</div>
                 </div>
 
                 <div class="floating-card floating-card-2">
-                    <div class="floating-icon"><i data-lucide="lock" style="width:20px;height:20px;color:#fff"></i></div>
-                    <div class="floating-label">Secured by</div>
-                    <div class="floating-value">Bank-Level Encryption</div>
+                    <div class="floating-icon"><i data-lucide="shield-check" style="width:20px;height:20px;color:#fff"></i></div>
+                    <div class="floating-label">You're Covered</div>
+                    <div class="floating-value">24/7 Support</div>
                 </div>
             </div>
         </div>
